@@ -77,7 +77,7 @@ public class Arbol : MonoBehaviour
 
         vertices.Add(nodoCentral);
 
-        Debug.Log($"🎯 Nodo Central Seguro conectado a la hoja {hojaElegida.nombreEscena}");
+        Debug.Log($"Nodo Central Seguro conectado a la hoja {hojaElegida.nombreEscena}");
     }
 
     // Encuentra todas las hojas del último nivel
