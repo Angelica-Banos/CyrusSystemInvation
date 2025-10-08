@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Correo : MonoBehaviour
 {
-    public int op
+    public int op;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
