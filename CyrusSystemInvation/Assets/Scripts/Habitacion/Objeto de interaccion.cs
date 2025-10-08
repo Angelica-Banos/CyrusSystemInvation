@@ -8,11 +8,12 @@ public class Objetodeinteraccion : MonoBehaviour
     void Start() {
         gameManager = GameManager.Instance;
     }
-    public void Interaccion() { 
+    public virtual void Interaccion() { 
         if (id == 0) {
             Debug.Log("Has interactuado con el objeto Derecha");
-            if (gameManager.EscenaActual.derecho == null) { 
-            // aviso
+            if (gameManager.EscenaActual.derecho == null) {
+                // aviso
+                Debug.Log("no hay nada a la derecha");
             }
             else { 
                 gameManager.ActualizarNodoDe();
@@ -24,6 +25,8 @@ public class Objetodeinteraccion : MonoBehaviour
             if (gameManager.EscenaActual.izquierdo == null)
             {
                 // aviso
+                Debug.Log("no hay nada a la izquierda");
+
             }
             else
             {

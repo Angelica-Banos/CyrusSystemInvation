@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +9,28 @@ public class GameManager : MonoBehaviour
 
     // --- Variables globales ---
     public Vertice EscenaActual;
+    public int contraseñacounter = 0;
+    public GameObject piso;
 
+    public void contraseñas() { 
+        contraseñacounter += 1;
+        if(contraseñacounter >= 4) { 
+            piso.SetActive(false);
+        }
+    }
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        piso = GameObject.FindGameObjectWithTag("Piso");
 
+        if (piso == null)
+        {
+            Debug.LogWarning("No se encontró ningún objeto con el tag 'Piso'.");
+        }
+        else
+        {
+            Debug.Log("Piso encontrado: " + piso.name);
+        }
+    }
 
     void Awake()
     {
@@ -23,6 +44,8 @@ public class GameManager : MonoBehaviour
         // Asignar la instancia y marcar para no destruirla
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        arbol = GetComponent<Arbol>();
     }
     public void ActualizarBase() { 
         EscenaActual = arbol.raiz;

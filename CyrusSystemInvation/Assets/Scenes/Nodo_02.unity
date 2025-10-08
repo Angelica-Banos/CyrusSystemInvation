@@ -795,6 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objetodeinteraccion
   id: 0
+  gameManager: {fileID: 0}
 --- !u!65 &746755946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1042,7 +1043,7 @@ GameObject:
   - component: {fileID: 907891060}
   m_Layer: 0
   m_Name: Piso
-  m_TagString: Untagged
+  m_TagString: Piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608eb17cdbffbe84f9ea05a2d7998a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  ID: 0
+  gameManager: {fileID: 0}
 --- !u!64 &1219054166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2528,6 +2529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objetodeinteraccion
   id: 1
+  gameManager: {fileID: 0}
 --- !u!65 &1690347460
 BoxCollider:
   m_ObjectHideFlags: 0
