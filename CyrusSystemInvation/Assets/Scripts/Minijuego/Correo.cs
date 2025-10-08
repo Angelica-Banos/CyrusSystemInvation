@@ -34,24 +34,24 @@ public class Correo : MonoBehaviour
     {
         "Confirmacion de Pedido #12345 de [TuTienda]",
         "Factura de Servicios de [TuProveedor] - Octubre 2025",
-        "Reuni�n de Equipo: Agenda y Enlaces (Miercoles 10:00 AM)",
-        "Actualizaci�n Semanal del Proyecto 'Apolo'",
+        "Reunion de Equipo: Agenda y Enlaces (Miercoles 10:00 AM)",
+        "Actualizacion Semanal del Proyecto 'Apolo'",
         "Aviso de Mantenimiento Programado de Sistemas",
         "Respuesta a su solicitud de soporte (Ticket #9876)",
-        "Nuevo Documento Compartido: 'Plan Estrat�gico Q4'",
-        "Confirmaci�n de Reserva en [Nombre de Aerolinea/Hotel]",
-        "Notificaci�n de Dep�sito Directo de N�mina",
-        "Cambios en la Pol�tica de Privacidad de [Servicio Conocido]"
+        "Nuevo Documento Compartido: 'Plan Estratogico Q4'",
+        "Confirmacion de Reserva en [Nombre de Aerolinea/Hotel]",
+        "Notificacion de Deposito Directo de Nomina",
+        "Cambios en la Politica de Privacidad de [Servicio Conocido]"
     };
     public List<string> asuntosSospechosos = new List<string>
     {
-        "�URGENTE! Su Cuenta Ser� Suspendida si No Act�a Ahora",
-        "Se Ha Detectado Actividad de Inicio de Sesi�n Inusual en Su Cuenta",
-        "Ganaste un iPhone 16 Pro Max �Recl�malo Ya!",
-        "Pago Fallido: Actualice su Informaci�n de Facturaci�n Inmediatamente",
-        "Tienes un Reembolso Pendiente (Haga Clic Aqu� para Procesar)",
-        "Notificaci�n: Un Archivo Adjunto Importante Requiere Su Atenci�n",
-        "Alerta de Seguridad: Su Contrase�a Ha Expirado - Clic para Restablecer",
+        "¡URGENTE! Su Cuenta Sera Suspendida si No Actua Ahora",
+        "Se Ha Detectado Actividad de Inicio de Sesion Inusual en Su Cuenta",
+        "Ganaste un iPhone 16 Pro Max ¡Reclamalo Ya!",
+        "Pago Fallido: Actualice su Informacion de Facturacion Inmediatamente",
+        "Tienes un Reembolso Pendiente (Haga Clic Aqui para Procesar)",
+        "Notificacion: Un Archivo Adjunto Importante Requiere Su Atencion",
+        "Alerta de Seguridad: Su Contrasena Ha Expirado - Clic para Restablecer",
         "Recibiste un Mensaje de Voz Misterioso",
         "CONFIDENCIAL: Revisar Este Documento (Solo Disponible Por 24 Horas)",
         "ultimo Aviso: Problema con su Entrega de Paquete (Incluye Enlace de Rastreo)"
