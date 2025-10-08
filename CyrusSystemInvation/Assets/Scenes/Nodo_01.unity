@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 50218187}
   - component: {fileID: 50218186}
   m_Layer: 0
-  m_Name: ParedNoFija
+  m_Name: 'Pared (3) '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,11 +258,11 @@ Transform:
   m_GameObject: {fileID: 50218184}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0002746582, y: 0.0000500679, z: -9.916504}
-  m_LocalScale: {x: 1.07, y: 0.8000001, z: 0.56}
+  m_LocalPosition: {x: -1.8151245, y: 2.8, z: -6.746582}
+  m_LocalScale: {x: 1.07, y: 0.80000013, z: 0.56}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 867274890}
+  m_Father: {fileID: 1670218355}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!64 &50218186
 MeshCollider:
@@ -1484,7 +1484,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1670218355}
-  - {fileID: 50218185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013204610
@@ -2606,7 +2605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670218355}
   m_Layer: 0
-  m_Name: Paredesfijas
+  m_Name: Paredes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2630,6 +2629,7 @@ Transform:
   - {fileID: 1013204611}
   - {fileID: 57584575}
   - {fileID: 1708626261}
+  - {fileID: 50218185}
   m_Father: {fileID: 867274890}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1708626260
