@@ -1,14 +1,41 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Objetodeinteraccion : MonoBehaviour
 {
     public int id;
+    public GameManager gameManager;
+    void Start() {
+        gameManager = GameManager.Instance;
+    }
     public void Interaccion() { 
         if (id == 0) {
-            Debug.Log("Has interactuado con el objeto 0");
+            Debug.Log("Has interactuado con el objeto Derecha");
+            if (gameManager.EscenaActual.derecho == null) { 
+            // aviso
+            }
+            else { 
+                gameManager.ActualizarNodoDe();
+                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+            }
         }
         else if (id == 1) {
-            Debug.Log("Has interactuado con el objeto 1");
+            Debug.Log("Has interactuado con el objeto Izquierda");
+            if (gameManager.EscenaActual.izquierdo == null)
+            {
+                // aviso
+            }
+            else
+            {
+                gameManager.ActualizarNodoIz();
+                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+        else if (id == 2) {
+            Debug.Log("Has interactuado con el objeto de la Base");
+            gameManager.ActualizarBase();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
         }
     }
 }

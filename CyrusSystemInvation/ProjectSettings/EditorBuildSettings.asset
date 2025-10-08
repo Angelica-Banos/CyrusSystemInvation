@@ -11,6 +11,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Base.unity
     guid: 1a12e99aecb90d54db2539ac5a94518c
+  - enabled: 1
+    path: Assets/Scenes/Nodo_01.unity
+    guid: c9ac3f2948f6f1949ac761e695a48ced
+  - enabled: 1
+    path: Assets/Scenes/Nodo_02.unity
+    guid: f1586a6a5ced565468ff0a37e78730bd
+  - enabled: 1
+    path: Assets/Scenes/Nodo_03.unity
+    guid: cf2038ef9b1797f419f45d6ec3978c32
+  - enabled: 1
+    path: Assets/Scenes/Nodo_04.unity
+    guid: 5813fefdb961e1c47a7d72dc18f5014d
+  - enabled: 1
+    path: Assets/Scenes/Nodo_seguro.unity
+    guid: aae40fbaa83e22e4ca281571cb834b26
+  - enabled: 1
+    path: Assets/Scenes/Minijuego1.unity
+    guid: 22adf6c47c56fd74e9f7b9acd8fac335
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

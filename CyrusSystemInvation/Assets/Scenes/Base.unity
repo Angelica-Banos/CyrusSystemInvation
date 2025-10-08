@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objetodeinteraccion
   id: 1
+  gameManager: {fileID: 0}
 --- !u!1 &127856194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,7 +1432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608eb17cdbffbe84f9ea05a2d7998a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  ID: 0
 --- !u!1 &1083159274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objetodeinteraccion
   id: 0
+  gameManager: {fileID: 0}
 --- !u!1 &1163389905
 GameObject:
   m_ObjectHideFlags: 0

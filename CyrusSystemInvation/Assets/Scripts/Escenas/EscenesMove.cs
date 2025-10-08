@@ -4,17 +4,17 @@ using UnityEngine.SceneManagement;
 public class EscenesMove : MonoBehaviour
 {
 
-    void Jugar() {
+    public void Jugar() {
         SceneManager.LoadScene(1);
 
     }
-    void Tutorial() { 
+    public void Tutorial() { 
         
     }
-    void Creditos() { 
+    public void Creditos() { 
         
     }
-    void salir() {
+    public void salir() {
         Application.Quit();
     }
 }

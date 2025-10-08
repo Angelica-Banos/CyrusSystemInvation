@@ -4,8 +4,8 @@ using UnityEngine;
 public class Arbol : MonoBehaviour
 {
     public Vertice raiz;
-    private List<Vertice> vertices = new List<Vertice>();
-    public int profundidadMaxima = 5;
+    public List<Vertice> vertices = new List<Vertice>();
+    public int profundidadMaxima = 4;
 
     private void Awake()
     {

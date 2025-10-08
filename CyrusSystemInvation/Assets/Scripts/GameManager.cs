@@ -4,9 +4,12 @@ public class GameManager : MonoBehaviour
 {
     // --- Instancia única (Singleton) ---
     public static GameManager Instance { get; private set; }
+    public static Arbol arbol;
 
     // --- Variables globales ---
-    public int EscenaActual;
+    public Vertice EscenaActual;
+
+
 
     void Awake()
     {
@@ -21,5 +24,15 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    public void ActualizarBase() { 
+        EscenaActual = arbol.raiz;
+    }
+    public void ActualizarNodoIz() { 
+        EscenaActual = EscenaActual.izquierdo;
 
+    }
+    public void ActualizarNodoDe() {
+        EscenaActual = EscenaActual.derecho;
+
+    }
 }
