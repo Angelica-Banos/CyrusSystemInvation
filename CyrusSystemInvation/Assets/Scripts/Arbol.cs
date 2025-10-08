@@ -55,12 +55,13 @@ public class Arbol : MonoBehaviour
     private void AgregarNodoBuscado()
     {
         // Obtener todos los vértices del último nivel
-        List<Vertice> hojas = ObtenerHojas(raiz, 1);
+        List<Vertice> hojas = ObtenerHojas(raiz, 1, profundidadMaxima);
 
-        if (hojas.Count == 0)
+        while (hojas.Count == 0)
         {
-            Debug.LogWarning("No se encontraron hojas en el último nivel, creando una nueva rama.");
-            hojas.Add(raiz);
+            profundidadMaxima = profundidadMaxima -1;
+            Debug.LogWarning("No se encontraron hojas en el último nivel, cambiando profundidad.");
+            hojas = ObtenerHojas(raiz, 1, profundidadMaxima);
         }
 
         // Elegir una hoja aleatoria
@@ -81,20 +82,20 @@ public class Arbol : MonoBehaviour
     }
 
     // Encuentra todas las hojas del último nivel
-    private List<Vertice> ObtenerHojas(Vertice actual, int nivel)
+    private List<Vertice> ObtenerHojas(Vertice actual, int nivel, int maxNivel)
     {
         List<Vertice> hojas = new List<Vertice>();
 
         if (actual == null) return hojas;
 
-        if (nivel == profundidadMaxima)
+        if (nivel == maxNivel)
         {
             hojas.Add(actual);
             return hojas;
         }
-
-        hojas.AddRange(ObtenerHojas(actual.izquierdo, nivel + 1));
-        hojas.AddRange(ObtenerHojas(actual.derecho, nivel + 1));
+        
+        hojas.AddRange(ObtenerHojas(actual.izquierdo, nivel + 1, maxNivel));
+        hojas.AddRange(ObtenerHojas(actual.derecho, nivel + 1, maxNivel));
 
         return hojas;
     }
