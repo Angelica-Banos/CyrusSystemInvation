@@ -9,6 +9,7 @@ public class Vertice
     public string nombreEscena;
     public Vertice izquierdo;
     public Vertice derecho;
+    public bool completado = false;
 
     public Vertice(string nombreEscena)
     {

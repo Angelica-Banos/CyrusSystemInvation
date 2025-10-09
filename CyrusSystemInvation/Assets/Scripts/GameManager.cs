@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -14,7 +15,16 @@ public class GameManager : MonoBehaviour
         contraseñacounter += 1;
         if(contraseñacounter >= 4) { 
             piso.SetActive(false);
+            contraseñacounter = 0;
+            EscenaActual.completado = true;
         }
+    }
+
+    public void Correo()
+    {
+            piso.SetActive(false);
+            Debug.Log("Correo Completado");
+            EscenaActual.completado = true;
     }
    
 
@@ -93,7 +103,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Piso encontrado: " + piso.name);
         }
-
+        if(EscenaActual.completado == true) { 
+            piso.SetActive(false);
+        }
+        else { 
+            piso.SetActive(true);
+        }
         // Si el árbol no está asignado, lo buscamos de nuevo
         if (arbol == null)
         {
