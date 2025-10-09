@@ -310,6 +310,7 @@ public class Correo : MonoBehaviour
         if (respuestasCorrectas == 3)
         {
             gameManager.Correo();
+            GameManager.Instance.MinijuegoActivo = false;
             GameObject playerCameraObject = GameObject.Find("PlayerCamera");
             //Cerrar juego copiado del script cerrarminijuego
             if (playerCameraObject != null)

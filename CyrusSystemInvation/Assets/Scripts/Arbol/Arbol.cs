@@ -15,10 +15,10 @@ public class Arbol : MonoBehaviour
     public void GenerarArbolAleatorio()
     {
         // Crear raiz
-        raiz = new Vertice("Base");
+        raiz = new Vertice("Base",0,0);
         vertices.Add(raiz);
 
-        // Generar todo el arbol (maximo 5 niveles)
+        // Generar todo el arbol (maximo 4 niveles)
         GenerarRamas(raiz, 1);
 
         //Crear y ubicar el nodo buscado en el último nivel
@@ -37,7 +37,7 @@ public class Arbol : MonoBehaviour
 
         if (crearIzq)
         {
-            Vertice izq = new Vertice($"Nodo_{vertices.Count}");
+            Vertice izq = new Vertice($"Nodo_{vertices.Count}",nivel,(padre.identificador*2)+1);
             padre.izquierdo = izq;
             vertices.Add(izq);
             GenerarRamas(izq, nivel + 1);
@@ -45,7 +45,7 @@ public class Arbol : MonoBehaviour
 
         if (crearDer)
         {
-            Vertice der = new Vertice($"Nodo_{vertices.Count}");
+            Vertice der = new Vertice($"Nodo_{vertices.Count}",nivel,(padre.identificador * 2) + 2);
             padre.derecho = der;
             vertices.Add(der);
             GenerarRamas(der, nivel + 1);
@@ -68,14 +68,19 @@ public class Arbol : MonoBehaviour
         Vertice hojaElegida = hojas[Random.Range(0, hojas.Count)];
 
         // Crear el nodo central seguro como hijo de esa hoja
-        Vertice nodoCentral = new Vertice("NodoCentralSeguro");
+        Vertice nodoCentral = new Vertice("NodoCentralSeguro",profundidadMaxima,(hojaElegida.identificador*2));
 
         // Lo conectamos aleatoriamente como izquierdo o derecho
         if (Random.value > 0.5f)
+        {
             hojaElegida.izquierdo = nodoCentral;
+            nodoCentral.identificador = (hojaElegida.identificador * 2) + 1;
+        }
         else
+        {
             hojaElegida.derecho = nodoCentral;
-
+            nodoCentral.identificador = (hojaElegida.identificador * 2) + 2;
+        }
         vertices.Add(nodoCentral);
 
         Debug.Log($"Nodo Central Seguro conectado a la hoja {hojaElegida.nombreEscena}");
