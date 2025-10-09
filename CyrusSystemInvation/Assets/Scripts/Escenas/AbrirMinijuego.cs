@@ -7,7 +7,7 @@ public class AbrirMinijuego : MonoBehaviour
     public int indiceSoloQuitar = 1;     // Índice de la escena donde solo se elimina algo
     public GameObject objetoAEliminar;   // Objeto a eliminar en esa escena
 
-    private bool minijuegoCargado = false;
+    public bool minijuegoCargado = false;
     public float distanciaInteraccion = 3f;
 
     void Update()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static Arbol arbol;
     public Vertice EscenaActual;
     public int contraseñacounter = 0;
+    public Boolean correoBool = false;
     public GameObject piso;
 
     public void contraseñas() { 
@@ -16,6 +18,16 @@ public class GameManager : MonoBehaviour
             piso.SetActive(false);
             contraseñacounter = 0;
             EscenaActual.completado = true;
+        }
+    }
+
+    public void Correo()
+    {
+        if (correoBool)
+        {
+            piso.SetActive(false);
+            EscenaActual.completado = true;
+            correoBool = false;
         }
     }
    

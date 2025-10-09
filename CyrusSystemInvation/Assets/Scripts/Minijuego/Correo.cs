@@ -2,11 +2,14 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class Correo : MonoBehaviour
 {
+    public GameManager gameManager = GameManager.Instance;
     private int ReOpElegida = 0;
     private int AsOpElegida = 0;
     private int CuOpElegida = 0;
@@ -306,7 +309,34 @@ public class Correo : MonoBehaviour
         if(CuOpElegida == CuOpCorrecta) { respuestasCorrectas++; }
         if (respuestasCorrectas == 3)
         {
-            //Lógica para cuando el jugador acierta todas las respuestas 
+            gameManager.correoBool = true;
+            GameObject playerCameraObject = GameObject.Find("PlayerCamera");
+            //Cerrar juego copiado del script cerrarminijuego
+            if (playerCameraObject != null)
+            {
+                Camera playerCam = playerCameraObject.GetComponent<Camera>();
+                if (playerCam != null)
+                {
+                    playerCam.enabled = true;
+                    Debug.Log("PlayerCamera re-enabled.");
+                }
+                else
+                {
+                    Debug.LogError("PlayerCamera object found, but it has no Camera component attached!");
+                }
+            }
+            else
+            {
+                Debug.LogError("Could not find GameObject named 'PlayerCamera' in the active scenes. Check the name and scene loading status.");
+            }
+            SceneManager.UnloadSceneAsync("Minijuego1");
+
+            // Reanudar el juego 3D
+            Time.timeScale = 1f;
+
+            // Volver a bloquear el cursor (si tu juego lo usa)
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.visible = false;
         }
         else
         {
@@ -352,6 +382,30 @@ public class Correo : MonoBehaviour
                         btnAs3.image.sprite = imagenBtn;
                         btnAs3.GetComponentInChildren<TextMeshProUGUI>().color = colorTexto;
                         btnAs3.image.color = Color.red;
+                        break;
+                    default:
+                        break;
+                }
+               
+            }
+            if(CuOpElegida != CuOpCorrecta)
+            {
+                switch (CuOpElegida)
+                {
+                    case 1:
+                        btnCu1.image.sprite = imagenBtn;
+                        btnCu1.GetComponentInChildren<TextMeshProUGUI>().color = colorTexto;
+                        btnCu1.image.color = Color.red;
+                        break;
+                    case 2:
+                        btnCu2.image.sprite = imagenBtn;
+                        btnCu2.GetComponentInChildren<TextMeshProUGUI>().color = colorTexto;
+                        btnCu2.image.color = Color.red;
+                        break;
+                    case 3:
+                        btnCu3.image.sprite = imagenBtn;
+                        btnCu3.GetComponentInChildren<TextMeshProUGUI>().color = colorTexto;
+                        btnCu3.image.color = Color.red;
                         break;
                     default:
                         break;
