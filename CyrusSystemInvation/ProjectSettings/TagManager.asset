@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Objeto Interactivo
   - Piso
+  - "Ca\xF1a"
+  - Pez
   layers:
   - Default
   - TransparentFX
