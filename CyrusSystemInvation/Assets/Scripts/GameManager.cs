@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
         contraseñacounter += 1;
         if(contraseñacounter >= 4) { 
             piso.SetActive(false);
+            contraseñacounter = 0;
+            EscenaActual.completado = true;
         }
     }
    
@@ -93,7 +95,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Piso encontrado: " + piso.name);
         }
-
+        if(EscenaActual.completado == true) { 
+            piso.SetActive(false);
+        }
+        else { 
+            piso.SetActive(true);
+        }
         // Si el árbol no está asignado, lo buscamos de nuevo
         if (arbol == null)
         {
