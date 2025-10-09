@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -6,31 +6,19 @@ public class GameManager : MonoBehaviour
     // --- Instancia única (Singleton) ---
     public static GameManager Instance { get; private set; }
     public static Arbol arbol;
-
-    // --- Variables globales ---
     public Vertice EscenaActual;
-    public int contrase�acounter = 0;
+    public int contraseñacounter = 0;
     public GameObject piso;
 
-    public void contrase�as() { 
-        contrase�acounter += 1;
-        if(contrase�acounter >= 4) { 
+    public void contraseñas() { 
+        contraseñacounter += 1;
+        if(contraseñacounter >= 4) { 
             piso.SetActive(false);
         }
     }
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        piso = GameObject.FindGameObjectWithTag("Piso");
+   
 
-        if (piso == null)
-        {
-            Debug.LogWarning("No se encontr� ning�n objeto con el tag 'Piso'.");
-        }
-        else
-        {
-            Debug.Log("Piso encontrado: " + piso.name);
-        }
-    }
+// --- Variables globales ---
 
     void Awake()
     {
@@ -45,12 +33,29 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        // Buscar automáticamente el árbol si no está asignado
+        if (arbol == null)
+        {
+            arbol = FindFirstObjectByType<Arbol>();
+            if (arbol == null)
+            {
+                Debug.LogWarning("⚠ No se encontró el árbol en la escena actual. Si esta es la escena de título, es normal.");
+            }
+            else
+            {
+                Debug.Log("🌳 Árbol encontrado automáticamente.");
+            }
+        }
+
+        // Escuchar los cambios de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         arbol = GetComponent<Arbol>();
+
     }
-    public void ActualizarBase() { 
-        EscenaActual = arbol.raiz;
-    }
-    public void ActualizarNodoIz() { 
+   
+    public void ActualizarNodoIz()
+    {
         EscenaActual = EscenaActual.izquierdo;
 
         // Buscar automáticamente el árbol si no está asignado
@@ -70,37 +75,80 @@ public class GameManager : MonoBehaviour
         //Escuchar los cambios de escena
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    public void ActualizarBase() { 
+        EscenaActual = arbol.raiz;
+    }
+    
 
+    // --- Se ejecuta cuando se carga una nueva escena ---
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        piso = GameObject.FindGameObjectWithTag("Piso");
+
+        if (piso == null)
+        {
+            Debug.LogWarning("No se encontr� ning�n objeto con el tag 'Piso'.");
+        }
+        else
+        {
+            Debug.Log("Piso encontrado: " + piso.name);
+        }
+
+        // Si el árbol no está asignado, lo buscamos de nuevo
         if (arbol == null)
         {
             arbol = FindFirstObjectByType<Arbol>();
             if (arbol != null)
-            {
-                Debug.Log($"Árbol asignado en la escena: {scene.name}");
-            }
+                Debug.Log($"🌱 Árbol asignado en la escena: {scene.name}");
+        }
+
+        // Buscar mapa visual en la nueva escena
+        MapaVisual mapa = FindFirstObjectByType<MapaVisual>();
+        if (mapa != null && arbol != null)
+        {
+            Debug.Log($"🗺 MapaVisual encontrado en la escena {scene.name}, configurando...");
+
+            // Configurar el mapa con el árbol actual
+            mapa.Configurar(arbol);
+
+            // Mostrar el estado actual del árbol (nodos visibles según la escena)
+            mapa.ActualizarMapa();
+
+            Debug.Log("✅ MapaVisual sincronizado correctamente con el árbol y el nodo actual.");
         }
     }
 
-    public void ActualizarBase()
-    {
-        if (arbol == null)
-            arbol = FindFirstObjectByType<Arbol>();
-
-        if (arbol != null)
-            EscenaActual = arbol.raiz;
-    }
-
-    public void ActualizarNodoIz()
-    {
-        if (EscenaActual != null)
-            EscenaActual = EscenaActual.izquierdo;
-    }
-
+    // --- Actualizar referencias de posición del jugador en el árbol ---
+    
     public void ActualizarNodoDe()
     {
-        if (EscenaActual != null)
+        if (EscenaActual != null && EscenaActual.derecho != null)
+        {
             EscenaActual = EscenaActual.derecho;
+            Debug.Log($"➡ Movido al nodo derecho: {EscenaActual.nombreEscena}");
+        }
+        else
+        {
+            Debug.LogWarning("⚠ No hay nodo derecho disponible desde la escena actual.");
+        }
+    }
+
+    // --- Carga una escena específica del nodo actual ---
+    public void CargarEscenaActual()
+    {
+        if (EscenaActual == null)
+        {
+            Debug.LogWarning("⚠ No se puede cargar la escena actual: el nodo actual es nulo.");
+            return;
+        }
+
+        Debug.Log($"🎬 Cargando escena: {EscenaActual.nombreEscena}");
+        SceneManager.LoadScene(EscenaActual.nombreEscena);
+    }
+
+    // --- Limpiar eventos al destruir ---
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
