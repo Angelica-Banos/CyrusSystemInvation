@@ -309,7 +309,7 @@ public class Correo : MonoBehaviour
         if(CuOpElegida == CuOpCorrecta) { respuestasCorrectas++; }
         if (respuestasCorrectas == 3)
         {
-            gameManager.correoBool = true;
+            gameManager.Correo();
             GameObject playerCameraObject = GameObject.Find("PlayerCamera");
             //Cerrar juego copiado del script cerrarminijuego
             if (playerCameraObject != null)

@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public static Arbol arbol;
     public Vertice EscenaActual;
     public int contraseñacounter = 0;
-    public Boolean correoBool = false;
     public GameObject piso;
 
     public void contraseñas() { 
@@ -23,12 +22,9 @@ public class GameManager : MonoBehaviour
 
     public void Correo()
     {
-        if (correoBool)
-        {
             piso.SetActive(false);
+            Debug.Log("Correo Completado");
             EscenaActual.completado = true;
-            correoBool = false;
-        }
     }
    
 
