@@ -34,7 +34,6 @@ public class AbrirMinijuego : MonoBehaviour
             }
             else
             {
-                
                 if (escenaActual == nodo1)
                 {
                     // 🟢 En las demás escenas, abrir el minijuego

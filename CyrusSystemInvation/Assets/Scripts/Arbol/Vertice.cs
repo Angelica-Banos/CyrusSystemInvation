@@ -7,19 +7,15 @@ public class Vertice
 
     public int id { get; private set; }
     public string nombreEscena;
-    public int profundidad;
-    public int identificador;
     public Vertice izquierdo;
     public Vertice derecho;
     public bool completado = false;
 
-    public Vertice(string nombreEscena,int prof, int identificador)
+    public Vertice(string nombreEscena)
     {
         this.id = contadorId++;
         this.nombreEscena = nombreEscena;
-        this.profundidad = prof;
         this.izquierdo = null;
         this.derecho = null;
-        this.identificador = identificador;
     }
 }

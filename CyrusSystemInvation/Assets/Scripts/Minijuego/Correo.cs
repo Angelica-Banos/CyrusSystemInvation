@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class Correo : MonoBehaviour
 {
-    public GameManager gameManager;
+    public GameManager gameManager = GameManager.Instance;
     private int ReOpElegida = 0;
     private int AsOpElegida = 0;
     private int CuOpElegida = 0;
@@ -118,7 +118,6 @@ public class Correo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameManager = GameManager.Instance;
         ReOpCorrecta = Random.Range(1, 4);
         Debug.Log(ReOpCorrecta);
         AsOpCorrecta = Random.Range(1, 4);
@@ -311,7 +310,6 @@ public class Correo : MonoBehaviour
         if (respuestasCorrectas == 3)
         {
             gameManager.Correo();
-            GameManager.Instance.MinijuegoActivo = false;
             GameObject playerCameraObject = GameObject.Find("PlayerCamera");
             //Cerrar juego copiado del script cerrarminijuego
             if (playerCameraObject != null)
@@ -331,7 +329,7 @@ public class Correo : MonoBehaviour
             {
                 Debug.LogError("Could not find GameObject named 'PlayerCamera' in the active scenes. Check the name and scene loading status.");
             }
-            SceneManager.UnloadScene(7);
+            SceneManager.UnloadSceneAsync("Minijuego1");
 
             // Reanudar el juego 3D
             Time.timeScale = 1f;

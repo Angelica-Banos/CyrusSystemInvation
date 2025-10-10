@@ -5,7 +5,6 @@ public class CerrarMinijuego : MonoBehaviour
 {
     public void Cerrar()
     {
-        GameManager.Instance.MinijuegoActivo = false;
         GameObject playerCameraObject = GameObject.Find("PlayerCamera");
         GameObject Boton = GameObject.Find("Boton");
         Boton.GetComponent<AbrirMinijuego>().minijuegoCargado = false;
