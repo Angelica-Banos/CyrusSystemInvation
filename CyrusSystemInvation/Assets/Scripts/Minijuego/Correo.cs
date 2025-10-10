@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class Correo : MonoBehaviour
 {
-    public GameManager gameManager = GameManager.Instance;
+    public GameManager gameManager;
     private int ReOpElegida = 0;
     private int AsOpElegida = 0;
     private int CuOpElegida = 0;
@@ -118,6 +118,7 @@ public class Correo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameManager = GameManager.Instance;
         ReOpCorrecta = Random.Range(1, 4);
         Debug.Log(ReOpCorrecta);
         AsOpCorrecta = Random.Range(1, 4);
@@ -330,7 +331,7 @@ public class Correo : MonoBehaviour
             {
                 Debug.LogError("Could not find GameObject named 'PlayerCamera' in the active scenes. Check the name and scene loading status.");
             }
-            SceneManager.UnloadSceneAsync("Minijuego1");
+            SceneManager.UnloadScene(7);
 
             // Reanudar el juego 3D
             Time.timeScale = 1f;
