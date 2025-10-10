@@ -228,7 +228,10 @@ public class GameManagerPesca : MonoBehaviour
         camaraWeb.Stop();
 
         if (puntajeActual >= objetivoMinimo)
+        {
+            GameManager.Instance.EscenaActual.completado = true;
             SceneManager.LoadScene("Nodo_02"); // si alcanzó el objetivo
+        }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); // si no, reinicia el minijuego
     }

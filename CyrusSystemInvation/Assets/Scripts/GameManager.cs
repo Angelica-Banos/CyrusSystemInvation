@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public static Arbol arbol;
     public Vertice EscenaActual;
+    public bool MinijuegoActivo = false;
     public int contraseñacounter = 0;
     public GameObject piso;
 
@@ -85,6 +86,19 @@ public class GameManager : MonoBehaviour
         //Escuchar los cambios de escena
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    public void ActualizarNodoDe()
+    {
+        if (EscenaActual != null && EscenaActual.derecho != null)
+        {
+            EscenaActual = EscenaActual.derecho;
+            Debug.Log($"➡ Movido al nodo derecho: {EscenaActual.nombreEscena}");
+        }
+        else
+        {
+            Debug.LogWarning("⚠ No hay nodo derecho disponible desde la escena actual.");
+        }
+    }
+
     public void ActualizarBase() { 
         EscenaActual = arbol.raiz;
     }
@@ -135,18 +149,6 @@ public class GameManager : MonoBehaviour
 
     // --- Actualizar referencias de posición del jugador en el árbol ---
     
-    public void ActualizarNodoDe()
-    {
-        if (EscenaActual != null && EscenaActual.derecho != null)
-        {
-            EscenaActual = EscenaActual.derecho;
-            Debug.Log($"➡ Movido al nodo derecho: {EscenaActual.nombreEscena}");
-        }
-        else
-        {
-            Debug.LogWarning("⚠ No hay nodo derecho disponible desde la escena actual.");
-        }
-    }
 
     // --- Carga una escena específica del nodo actual ---
     public void CargarEscenaActual()
