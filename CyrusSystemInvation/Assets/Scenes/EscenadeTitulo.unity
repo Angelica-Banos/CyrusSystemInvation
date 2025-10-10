@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 213702234}
   - component: {fileID: 213702233}
   - component: {fileID: 213702232}
+  - component: {fileID: 213702235}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -606,6 +607,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213702230}
   m_CullTransparentMesh: 1
+--- !u!114 &213702235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213702230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d8e15794dee1d4e9de8a02ac7d5b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
+  URL: https://www.canva.com/design/DAG1bMx6-PU/9cCGlA0n7HwhHiyZwb4tCg/view?utm_content=DAG1bMx6-PU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he5d707698b
 --- !u!1 &375391687
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,8 +998,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efab9c94c812d94da75a1cfae9cb2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  EscenaAnterior: 0
-  EscenaActual: 0
+  EscenaActual:
+    nombreEscena: 
+    profundidad: 0
+    identificador: 0
+    completado: 0
+  MinijuegoActivo: 0
+  "contrase\xF1acounter": 0
+  piso: {fileID: 0}
 --- !u!4 &774297312
 Transform:
   m_ObjectHideFlags: 0
@@ -1015,6 +1035,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Arbol
   raiz:
     nombreEscena: 
+    profundidad: 0
+    identificador: 0
+    completado: 0
   vertices: []
   profundidadMaxima: 4
 --- !u!1 &872324624
