@@ -16,7 +16,7 @@ public class Objetodeinteraccion : MonoBehaviour
                 Debug.Log("no hay nada a la derecha");
             }
             else { 
-                gameManager.ActualizarNodoDe();
+                GameManager.Instance.ActualizarNodoDe();
                 UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
         }
@@ -30,13 +30,13 @@ public class Objetodeinteraccion : MonoBehaviour
             }
             else
             {
-                gameManager.ActualizarNodoIz();
+                GameManager.Instance.ActualizarNodoIz();
                 UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
         else if (id == 2) {
             Debug.Log("Has interactuado con el objeto de la Base");
-            gameManager.ActualizarBase();
+           GameManager.Instance.ActualizarBase();
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 
         }

@@ -8,7 +8,7 @@ public class AbrirMinijuego : MonoBehaviour
     public int nodo1 = 2, nodo2 = 3; // Nodos del árbol para desbloquear
     public int indiceSoloQuitar = 1;     // Índice de la escena donde solo se elimina algo
     public GameObject objetoAEliminar;   // Objeto a eliminar en esa escena
-
+    public GameObject objetoAEliminar2;  //Otro Objeto a eliminar en esa escena
     public bool minijuegoCargado = false;
     public float distanciaInteraccion = 3f;
 
@@ -19,7 +19,7 @@ public class AbrirMinijuego : MonoBehaviour
             // Obtener el índice de la escena actual
             int escenaActual = SceneManager.GetActiveScene().buildIndex;
 
-            if (escenaActual == indiceSoloQuitar)
+            if (escenaActual == indiceSoloQuitar || escenaActual == 5)
             {
                 // 🔴 En esta escena, solo eliminar un objeto
                 if (objetoAEliminar != null)
@@ -29,11 +29,18 @@ public class AbrirMinijuego : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("No hay objeto asignado para eliminar en esta escena.");
+                    if(objetoAEliminar2 != null)
+                    {
+                        Destroy(objetoAEliminar2);
+                        Debug.Log("Objeto 2 eliminado en la escena con índice " + escenaActual);
+                    }
+                    else
+                        Debug.LogWarning("No hay objeto asignado para eliminar en esta escena.");
                 }
             }
             else
             {
+                
                 if (escenaActual == nodo1)
                 {
                     // 🟢 En las demás escenas, abrir el minijuego
