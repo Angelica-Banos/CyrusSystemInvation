@@ -2875,6 +2875,7 @@ GameObject:
   - component: {fileID: 320529035}
   - component: {fileID: 320529034}
   - component: {fileID: 320529033}
+  - component: {fileID: 320529037}
   m_Layer: 0
   m_Name: Boton
   m_TagString: Untagged
@@ -2995,6 +2996,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320529031}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &320529037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320529031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c71bfd7e2dfdb4aa29df5d8eb5f5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objetodeinteraccion
+  id: 4
+  gameManager: {fileID: 0}
 --- !u!1 &326617856
 GameObject:
   m_ObjectHideFlags: 0
@@ -14571,6 +14586,7 @@ MonoBehaviour:
   - {fileID: 142305061}
   mapa: {fileID: 0}
   gameManager: {fileID: 0}
+  busc: 0
   nodosExistentes: 
 --- !u!114 &1418909155
 MonoBehaviour:
@@ -19972,6 +19988,7 @@ GameObject:
   - component: {fileID: 1976085544}
   - component: {fileID: 1976085543}
   - component: {fileID: 1976085542}
+  - component: {fileID: 1976085546}
   m_Layer: 0
   m_Name: Boton
   m_TagString: Untagged
@@ -20092,6 +20109,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976085540}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1976085546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976085540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c71bfd7e2dfdb4aa29df5d8eb5f5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objetodeinteraccion
+  id: 3
+  gameManager: {fileID: 0}
 --- !u!1 &1981570866
 GameObject:
   m_ObjectHideFlags: 0

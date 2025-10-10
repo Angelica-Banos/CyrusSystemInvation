@@ -32,8 +32,8 @@ public class Arbol : MonoBehaviour
         if (nivel >= profundidadMaxima) return;
 
         // Decide aleatoriamente si crea hijo izquierdo y/o derecho
-        bool crearIzq = Random.value > 0.3f;
-        bool crearDer = Random.value > 0.3f;
+        bool crearIzq = Random.value > 0.1f;
+        bool crearDer = Random.value > 0.1f;
 
         if (crearIzq)
         {
@@ -82,7 +82,7 @@ public class Arbol : MonoBehaviour
             nodoCentral.identificador = (hojaElegida.identificador * 2) + 2;
         }
         vertices.Add(nodoCentral);
-
+        nodoCentral.esNodoBuscado = true;
         Debug.Log($"Nodo Central Seguro conectado a la hoja {hojaElegida.nombreEscena}");
     }
 

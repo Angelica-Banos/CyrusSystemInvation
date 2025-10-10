@@ -9,18 +9,28 @@ public class Objetodeinteraccion : MonoBehaviour
         gameManager = GameManager.Instance;
     }
     public virtual void Interaccion() { 
-        if (id == 0) {
+        if(gameManager.EscenaActual.izquierdo.esNodoBuscado || gameManager.EscenaActual.derecho.esNodoBuscado)
+        {
+            Debug.Log("Has ganado el juego");
+            GameManager.Instance.GanasteElJuego();
+            return;
+        }
+        if (id == 0)
+        {
             Debug.Log("Has interactuado con el objeto Derecha");
-            if (gameManager.EscenaActual.derecho == null) {
+            if (gameManager.EscenaActual.derecho == null)
+            {
                 // aviso
                 Debug.Log("no hay nada a la derecha");
             }
-            else { 
+            else
+            {
                 GameManager.Instance.ActualizarNodoDe();
-                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
-        else if (id == 1) {
+        else if (id == 1)
+        {
             Debug.Log("Has interactuado con el objeto Izquierda");
             if (gameManager.EscenaActual.izquierdo == null)
             {
@@ -34,11 +44,16 @@ public class Objetodeinteraccion : MonoBehaviour
                 UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
-        else if (id == 2) {
+        else if (id == 2)
+        {
             Debug.Log("Has interactuado con el objeto de la Base");
-           GameManager.Instance.ActualizarBase();
+            GameManager.Instance.ActualizarBase();
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 
+        }
+        else { 
+            Debug.Log("soplapollas" +
+                "");
         }
     }
 }

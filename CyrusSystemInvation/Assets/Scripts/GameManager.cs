@@ -168,4 +168,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
+    public void GanasteElJuego() { 
+        SceneManager.LoadScene(6);
+    }
 }

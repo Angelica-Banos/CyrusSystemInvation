@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,15 @@ public class ControladorMapa : MonoBehaviour
     public List<GameObject> vertices = new List<GameObject>();
     public GameObject mapa;
     public GameManager gameManager;
+    public int busc;
     public List<int> nodosExistentes = new List<int>();
     private void Start()
     {
         gameManager = GameManager.Instance;
         ActualizarMapa();
         vertices[gameManager.EscenaActual.identificador].GetComponent<Image >().color = Color.red;
+        vertices[busc].GetComponent<Image >().color = Color.green;
+
     }
     private void Update()
     {
@@ -32,8 +36,12 @@ public class ControladorMapa : MonoBehaviour
     public void ActualizarMapaRecursivo(Vertice a)
     {
         if (a == null) return;
-        else if(!nodosExistentes.Contains(a.identificador))
+        else if (!nodosExistentes.Contains(a.identificador))
         {
+            if (a.esNodoBuscado)
+            {
+                busc = a.identificador;
+            }
             nodosExistentes.Add(a.identificador);
             vertices[a.identificador].SetActive(true);
             ActualizarMapaRecursivo(a.izquierdo);

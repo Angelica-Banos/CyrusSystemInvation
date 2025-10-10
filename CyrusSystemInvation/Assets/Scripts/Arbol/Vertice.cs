@@ -12,6 +12,7 @@ public class Vertice
     public Vertice izquierdo;
     public Vertice derecho;
     public bool completado = false;
+    public bool esNodoBuscado = false;
 
     public Vertice(string nombreEscena,int prof, int identificador)
     {
@@ -21,5 +22,6 @@ public class Vertice
         this.izquierdo = null;
         this.derecho = null;
         this.identificador = identificador;
+
     }
 }

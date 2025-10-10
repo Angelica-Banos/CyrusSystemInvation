@@ -3800,6 +3800,7 @@ GameObject:
   - component: {fileID: 1163389908}
   - component: {fileID: 1163389907}
   - component: {fileID: 1163389910}
+  - component: {fileID: 1163389911}
   m_Layer: 0
   m_Name: Boton
   m_TagString: Untagged
@@ -3917,8 +3918,23 @@ MonoBehaviour:
   nodo2: 3
   indiceSoloQuitar: 1
   objetoAEliminar: {fileID: 1218309116}
+  objetoAEliminar2: {fileID: 0}
   minijuegoCargado: 0
   distanciaInteraccion: 3
+--- !u!114 &1163389911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163389905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c71bfd7e2dfdb4aa29df5d8eb5f5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objetodeinteraccion
+  id: 3
+  gameManager: {fileID: 0}
 --- !u!1 &1186928330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4066,7 +4082,10 @@ MonoBehaviour:
   - {fileID: 1842171610}
   - {fileID: 869139906}
   - {fileID: 785409231}
+  mapa: {fileID: 0}
   gameManager: {fileID: 0}
+  busc: 0
+  nodosExistentes: 
 --- !u!1 &1218309116
 GameObject:
   m_ObjectHideFlags: 0
