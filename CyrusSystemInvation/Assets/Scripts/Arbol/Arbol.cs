@@ -29,11 +29,11 @@ public class Arbol : MonoBehaviour
 
     private void GenerarRamas(Vertice padre, int nivel)
     {
-        if (nivel >= profundidadMaxima) return;
+        if (nivel > profundidadMaxima) return;
 
         // Decide aleatoriamente si crea hijo izquierdo y/o derecho
-        bool crearIzq = Random.value > 0.1f;
-        bool crearDer = Random.value > 0.1f;
+        bool crearIzq = Random.value > 0.1;
+        bool crearDer = Random.value > 0.1;
 
         if (crearIzq)
         {
