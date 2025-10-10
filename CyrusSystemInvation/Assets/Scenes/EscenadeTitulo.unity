@@ -568,7 +568,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 213702233}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 213702235}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: OpenURLInBrowser
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &213702233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +1015,7 @@ MonoBehaviour:
     profundidad: 0
     identificador: 0
     completado: 0
+    esNodoBuscado: 0
   MinijuegoActivo: 0
   "contrase\xF1acounter": 0
   piso: {fileID: 0}
@@ -1038,6 +1051,7 @@ MonoBehaviour:
     profundidad: 0
     identificador: 0
     completado: 0
+    esNodoBuscado: 0
   vertices: []
   profundidadMaxima: 4
 --- !u!1 &872324624
