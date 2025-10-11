@@ -8,11 +8,8 @@ public class EscenesMove : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
-    public void Tutorial() { 
-        
-    }
-    public void Creditos() { 
-        
+    public void Creditos() {
+        SceneManager.LoadScene(9);
     }
     public void salir() {
         Application.Quit();

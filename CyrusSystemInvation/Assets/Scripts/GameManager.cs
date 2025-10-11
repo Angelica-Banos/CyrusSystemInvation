@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void ActualizarBase() { 
         EscenaActual = arbol.raiz;
+        Debug.Log($"➡ Movido al nodo : {EscenaActual.nombreEscena}");
     }
     
 
