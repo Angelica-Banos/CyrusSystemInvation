@@ -1,61 +1,68 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class TituloEscenaUI : MonoBehaviour
 {
-    [Header("Configuración del título")]
+    [Header("Configuración del título principal")]
     public TextMeshProUGUI textoTitulo;
     public CanvasGroup grupoCanvas;
+
+    [Header("Mensajes adicionales")]
+    public TextMeshProUGUI[] mensajes; // Se llenan dinámicamente
+
+    [Header("Tiempos de animación")]
     public float duracionVisible = 5f;
     public float duracionDesvanecer = 1.5f;
 
     void Start()
     {
-        grupoCanvas.alpha = 0;
-
-        // Obtiene el nombre de la escena actual
-        string nombreEscena = SceneManager.GetActiveScene().name;
-
-        // Intenta obtener el nombre bonito desde el GameManager
+        // Asigna el contenido dinámico desde el GameManager (si existe)
         if (GameManager.Instance != null)
         {
-            string nombreBonito = GameManager.Instance.ObtenerNombreBonito(nombreEscena);
-            textoTitulo.text = nombreBonito;
-        }
-        else
-        {
-            textoTitulo.text = nombreEscena;
+            string titulo = GameManager.Instance.ObtenerTituloDeEscena();
+            string[] textos = GameManager.Instance.ObtenerMensajesDeEscena();
+
+            if (textoTitulo != null)
+                textoTitulo.text = titulo;
+
+            for (int i = 0; i < mensajes.Length; i++)
+            {
+                if (i < textos.Length)
+                {
+                    mensajes[i].text = textos[i];
+                    mensajes[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    mensajes[i].gameObject.SetActive(false);
+                }
+            }
         }
 
-        StartCoroutine(MostrarTitulo());
+        // Inicia invisible
+        grupoCanvas.alpha = 0f;
+        StartCoroutine(MostrarYDesvanecer());
     }
 
-    IEnumerator MostrarTitulo()
+    private IEnumerator MostrarYDesvanecer()
     {
-        // --- Desvanecer entrada (fade in) ---
-        float tiempo = 0;
-        while (tiempo < duracionDesvanecer)
-        {
-            tiempo += Time.deltaTime;
-            grupoCanvas.alpha = Mathf.Lerp(0, 1, tiempo / duracionDesvanecer);
-            yield return null;
-        }
-
-        // --- Mantener visible ---
+        yield return StartCoroutine(FadeCanvas(0f, 1f, duracionDesvanecer));
         yield return new WaitForSeconds(duracionVisible);
+        yield return StartCoroutine(FadeCanvas(1f, 0f, duracionDesvanecer));
+        Destroy(gameObject);
+    }
 
-        // --- Desvanecer salida (fade out) ---
-        tiempo = 0;
-        while (tiempo < duracionDesvanecer)
+    private IEnumerator FadeCanvas(float desde, float hasta, float duracion)
+    {
+        float tiempo = 0f;
+        while (tiempo < duracion)
         {
             tiempo += Time.deltaTime;
-            grupoCanvas.alpha = Mathf.Lerp(1, 0, tiempo / duracionDesvanecer);
+            float t = tiempo / duracion;
+            grupoCanvas.alpha = Mathf.Lerp(desde, hasta, t);
             yield return null;
         }
-
-        Destroy(gameObject);
+        grupoCanvas.alpha = hasta;
     }
 }

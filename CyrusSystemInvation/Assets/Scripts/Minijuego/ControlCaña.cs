@@ -47,9 +47,6 @@ public class ControlCaña : MonoBehaviour
 
         transform.localScale = escala;
 
-        // Limitar el movimiento en el eje Y
-        Vector3 pos = transform.position;
-        pos.y = Mathf.Clamp(pos.y, limiteInferior, limiteSuperior);
-        transform.position = pos;
+       
     }
 }

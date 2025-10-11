@@ -4,8 +4,8 @@ using UnityEngine;
 public class PezMover : MonoBehaviour
 {
     private float velocidad;
-    private float inicioX = -9f;
-    private float finX = 9f;
+    private float inicioX = 174f;
+    private float finX = 194f;
     private float limiteY = 3.5f;
 
     void Start()

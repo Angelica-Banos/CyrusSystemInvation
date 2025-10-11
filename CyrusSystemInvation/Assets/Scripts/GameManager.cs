@@ -204,4 +204,76 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public string[] ObtenerMensajesDeEscena()
+    {
+        string nombre = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        switch (nombre)
+        {
+            case "Base":
+                return new string[]
+                {
+                "Bienvenido a la invasion cibernetica.",
+                "Preparate para infiltrarte en el sistema.",
+                "Tu mision esta por comenzar.",
+                "Utiliza WASD para moverte.",
+                "Utiliza E para interactuar"
+                };
+
+            case "Nodo_03":
+                return new string[]
+                {
+                "Encuentra la combinacion",
+                "Utiliza WASD para moverte",
+                "Utiliza E para interactuar"
+                };
+
+            case "Nodo_01":
+                return new string[]
+                {
+               "Captura todos los archivos que puedas para corromperlos",
+                "Utiliza WASD para moverte",
+                "Utiliza E para interactuar"
+                };
+
+            case "Nodo_02":
+                return new string[]
+                {
+                 "Selecciona la opcion correcta",            
+                "Utiliza  CLICK para interactuar"
+                };
+            case "Nodo_04":
+                return new string[]
+                {
+                 "???",
+                 "LLega al final sin desaparecer",
+                  "Utiliza WASD para moverte",
+                  "Utiliza Ctrl para agacharte",
+                  "Utiliza espacio para saltar",
+                "Utiliza  E para interactuar"
+                };
+            case "Nodo_seguro":
+                return new string[]
+                {
+                 
+                 "Felicidades",
+                  "Estas a nada de terminar cumplir tu mision !",
+                  "Utiliza WASD para moverte"
+                };
+
+            default:
+                return new string[] { "" };
+        }
+    }
+
+
+    public string ObtenerTituloDeEscena()
+    {
+        // Devuelve el nombre bonito para la escena actual
+        string nombreActual = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        return ObtenerNombreBonito(nombreActual);
+
+    }
+
+
 }
