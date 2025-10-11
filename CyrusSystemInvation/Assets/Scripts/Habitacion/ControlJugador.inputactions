@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "ControlJugador",
+    "maps": [
+        {
+            "name": "Jugador",
+            "id": "dd63855c-0072-4eb4-969c-959e9a86db8c",
+            "actions": [
+                {
+                    "name": "Interaccion",
+                    "type": "Button",
+                    "id": "4ad685d9-96e6-40d1-805e-111326016434",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4322effd-6798-4568-a3d9-acedfb7f5dbf",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interaccion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -25,6 +25,7 @@ public class Objetodeinteraccion : MonoBehaviour
             }
             else
             {
+                Debug.Log(gameManager.EscenaActual.derecho.identificador);
                 GameManager.Instance.ActualizarNodoDe();
                 UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
@@ -40,6 +41,7 @@ public class Objetodeinteraccion : MonoBehaviour
             }
             else
             {
+                Debug.Log(gameManager.EscenaActual.izquierdo.identificador);
                 GameManager.Instance.ActualizarNodoIz();
                 UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }

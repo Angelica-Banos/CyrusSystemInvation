@@ -120,7 +120,6 @@ public class Correo : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         ReOpCorrecta = Random.Range(1, 4);
-        Debug.Log(ReOpCorrecta);
         AsOpCorrecta = Random.Range(1, 4);
         CuOpCorrecta = Random.Range(1, 4);
         ReCargarTexto(ReOpCorrecta);

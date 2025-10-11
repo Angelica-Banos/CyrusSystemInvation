@@ -3,7 +3,7 @@ using UnityEngine;
 public class Selecter : MonoBehaviour
 {
     LayerMask mask;
-    public float distance = 1.5f;
+    public float distance = 3f;
     public GameObject textDetect;
     public Texture2D cursorDetect;
     GameObject ultimoObjeto=null;

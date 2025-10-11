@@ -14,9 +14,15 @@ public class ControladorMapa : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         ActualizarMapa();
-        vertices[gameManager.EscenaActual.identificador].GetComponent<Image >().color = Color.red;
+        Debug.LogWarning("El nodo es: " + vertices[gameManager.EscenaActual.identificador]);
+        vertices[gameManager.EscenaActual.identificador].GetComponent<Image>().color = Color.red;
         vertices[busc].GetComponent<Image >().color = Color.green;
 
+    }
+    public void ColorearNodoActual()
+    {
+        vertices[gameManager.EscenaActual.identificador].GetComponent<Image>().color = Color.red;
+        vertices[busc].GetComponent<Image>().color = Color.green;
     }
     private void Update()
     {
@@ -27,6 +33,7 @@ public class ControladorMapa : MonoBehaviour
         else
         {
             mapa.SetActive(true);
+            this.ColorearNodoActual();
         }
     }
     public void ActualizarMapa()
