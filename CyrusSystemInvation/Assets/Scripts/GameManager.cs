@@ -145,12 +145,19 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("✅ MapaVisual sincronizado correctamente con el árbol y el nodo actual.");
         }
+
+        GameObject prefabTitulo = Resources.Load<GameObject>("CanvasTituloEscena");
+        if (prefabTitulo != null)
+        {
+            Instantiate(prefabTitulo);
+        }
+        else
+        {
+            Debug.LogWarning("⚠ No se encontró el prefab 'CanvasTituloEscena' en la carpeta Recursos.");
+        }
     }
 
-    // --- Actualizar referencias de posición del jugador en el árbol ---
     
-
-    // --- Carga una escena específica del nodo actual ---
     public void CargarEscenaActual()
     {
         if (EscenaActual == null)
@@ -172,4 +179,28 @@ public class GameManager : MonoBehaviour
     public void GanasteElJuego() { 
         SceneManager.LoadScene(6);
     }
+
+    // --- Devuelve un nombre más bonito para el título de cada escena ---
+    public string ObtenerNombreBonito(string nombreEscena)
+    {
+        switch (nombreEscena)
+        {
+            
+            case "Base":
+                return "Base Cyrus";
+            case "Nodo_01":
+                return "Phishing.exe";
+            case "Nodo_02":
+                return "Salto de directorio";
+            case "Nodo_03":
+                return "Robo de contraseñas";
+            case "Nodo_04":
+                return "Infección progresiva";
+            case "Nodo_seguro":
+                return "Central";
+            default:
+                return " ";
+        }
+    }
+
 }
