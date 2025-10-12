@@ -12,7 +12,7 @@ public class TituloEscenaUI : MonoBehaviour
     public TextMeshProUGUI[] mensajes; // Se llenan dinámicamente
 
     [Header("Tiempos de animación")]
-    public float duracionVisible = 5f;
+    public float duracionVisible = 3f;
     public float duracionDesvanecer = 1.5f;
 
     void Start()

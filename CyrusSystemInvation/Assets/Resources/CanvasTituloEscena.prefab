@@ -871,7 +871,7 @@ MonoBehaviour:
   - {fileID: 8010116190119660551}
   - {fileID: 2932515580212993144}
   - {fileID: 8034954432162947428}
-  duracionVisible: 5
+  duracionVisible: 3
   duracionDesvanecer: 1.5
 --- !u!1 &5744869389124020421
 GameObject:

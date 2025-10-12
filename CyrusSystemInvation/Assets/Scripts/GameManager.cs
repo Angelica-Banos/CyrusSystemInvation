@@ -182,9 +182,9 @@ public class GameManager : MonoBehaviour
             
             case "Base":
                 return "Base Cyrus";
-            case "Nodo_01":
-                return "Phishing.exe";
             case "Nodo_02":
+                return "Phishing.exe";
+            case "Nodo_01":
                 return "Salto de directorio";
             case "Nodo_03":
                 return "Robo de contraseñas";
