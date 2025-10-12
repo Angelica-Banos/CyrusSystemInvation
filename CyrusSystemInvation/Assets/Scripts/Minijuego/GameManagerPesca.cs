@@ -224,8 +224,17 @@ public class GameManagerPesca : MonoBehaviour
 
     void FinalizarJuego()
     {
+        if (WebCamTexture.devices.Length > 0)
+        {
+            camaraWeb.Stop();
+        }
+        else
+        {
+            Debug.LogWarning("No se detectó cámara.");
+        }
         juegoActivo = false;
-        camaraWeb.Stop();
+        
+        
 
         if (puntajeActual >= objetivoMinimo)
         {
