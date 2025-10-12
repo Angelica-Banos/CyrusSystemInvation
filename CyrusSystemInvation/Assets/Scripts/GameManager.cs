@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public static Arbol arbol;
     public Vertice EscenaActual;
-    public bool MinijuegoActivo = false;
+    public bool MinijuegoActivo = false, minijuego2win=false;
     public int contraseñacounter = 0;
     public GameObject piso;
 
@@ -67,24 +67,17 @@ public class GameManager : MonoBehaviour
    
     public void ActualizarNodoIz()
     {
-        EscenaActual = EscenaActual.izquierdo;
 
-        // Buscar automáticamente el árbol si no está asignado
-        if (arbol == null)
+        if (EscenaActual != null && EscenaActual.izquierdo != null)
         {
-            arbol = FindFirstObjectByType<Arbol>();
-            if (arbol == null)
-            {
-                Debug.LogWarning("No se encontró el árbol en la escena actual. Si esta es la escena de título, es normal.");
-            }
-            else
-            {
-                Debug.Log("Árbol encontrado automáticamente.");
-            }
+            EscenaActual = EscenaActual.izquierdo;
+            Debug.Log($"➡ Movido al nodo derecho: {EscenaActual.nombreEscena}");
+        }
+        else
+        {
+            Debug.LogWarning("⚠ No hay nodo derecho disponible desde la escena actual.");
         }
 
-        //Escuchar los cambios de escena
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     public void ActualizarNodoDe()
     {

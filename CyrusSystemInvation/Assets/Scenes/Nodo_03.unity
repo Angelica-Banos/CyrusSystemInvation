@@ -3623,6 +3623,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 249642279247871171, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: textDetect
+      value: 
+      objectReference: {fileID: 668764290}
     - target: {fileID: 4254752271480129106, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
@@ -3671,13 +3675,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonController Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3959005170262442983, guid: 1b68bc221519ab044994cef464284696, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5519088774667012186, guid: 1b68bc221519ab044994cef464284696, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 893281600}
     - targetCorrespondingSourceObject: {fileID: 5519088774667012186, guid: 1b68bc221519ab044994cef464284696, type: 3}
       insertIndex: -1
       addedObject: {fileID: 893281599}
@@ -3704,21 +3706,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 64490ec18aa996c468dd1db938536bcf, type: 2}
---- !u!114 &893281600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893281598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26646fa8ff485d94fbeb5bc093ab61c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Selecter
-  distance: 1.5
-  textDetect: {fileID: 668764290}
-  cursorDetect: {fileID: 0}
 --- !u!1 &957449529
 GameObject:
   m_ObjectHideFlags: 0

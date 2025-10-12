@@ -72,15 +72,17 @@ public class AbrirMinijuego : MonoBehaviour
                         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
                         if (Physics.Raycast(ray, out RaycastHit hit, distanciaInteraccion))
                         {
-                            if (hit.collider.gameObject == gameObject)
-                            {
-                                SceneManager.LoadScene(indiceMinijuego2, LoadSceneMode.Additive);
-                                Camera.main.enabled = false;
+                            
+
+                            if (hit.collider.gameObject == gameObject) { 
+                                //    SceneManager.LoadScene(indiceMinijuego2, LoadSceneMode.Additive);
+                                //    Camera.main.enabled = false;
+                                //    Time.timeScale = 0f;
                                 minijuegoCargado = true;
-                                Time.timeScale = 0f;
                                 Cursor.lockState = CursorLockMode.None;
                                 Cursor.visible = true;
-                                Debug.Log("Minijuego cargado: escena " + indiceMinijuego2);
+                                SceneManager.LoadScene(indiceMinijuego2);
+                            //    Debug.Log("Minijuego cargado: escena " + indiceMinijuego2);
                             }
                         }
                     }

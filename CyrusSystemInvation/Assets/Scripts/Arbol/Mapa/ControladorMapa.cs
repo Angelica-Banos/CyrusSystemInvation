@@ -16,7 +16,7 @@ public class ControladorMapa : MonoBehaviour
         ActualizarMapa();
         Debug.LogWarning("El nodo es: " + vertices[gameManager.EscenaActual.identificador]);
         vertices[gameManager.EscenaActual.identificador].GetComponent<Image>().color = Color.red;
-        vertices[busc].GetComponent<Image >().color = Color.green;
+        //vertices[busc].GetComponent<Image >().color = Color.green;
 
     }
     public void ColorearNodoActual()
@@ -43,11 +43,12 @@ public class ControladorMapa : MonoBehaviour
     public void ActualizarMapaRecursivo(Vertice a)
     {
         if (a == null) return;
-        else if (!nodosExistentes.Contains(a.identificador))
+        else 
         {
             if (a.esNodoBuscado)
             {
                 busc = a.identificador;
+                return;
             }
             nodosExistentes.Add(a.identificador);
             vertices[a.identificador].SetActive(true);

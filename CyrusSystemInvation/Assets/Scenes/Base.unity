@@ -4500,6 +4500,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 249642279247871171, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: textDetect
+      value: 
+      objectReference: {fileID: 2049191470}
+    - target: {fileID: 249642279247871171, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: cursorDetect
+      value: 
+      objectReference: {fileID: 2800000, guid: eb0b0a37b4de83142b29d9b28dcd7cba, type: 3}
+    - target: {fileID: 3176967031517056529, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: textDetect
+      value: 
+      objectReference: {fileID: 2049191470}
     - target: {fileID: 4254752271480129106, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
@@ -4552,9 +4564,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5519088774667012186, guid: 1b68bc221519ab044994cef464284696, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1465887412}
     - targetCorrespondingSourceObject: {fileID: 5519088774667012186, guid: 1b68bc221519ab044994cef464284696, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1465887417}
@@ -5172,21 +5181,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5519088774667012186, guid: 1b68bc221519ab044994cef464284696, type: 3}
   m_PrefabInstance: {fileID: 1255132219}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1465887412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465887406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26646fa8ff485d94fbeb5bc093ab61c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Selecter
-  distance: 1.5
-  textDetect: {fileID: 2049191470}
-  cursorDetect: {fileID: 0}
 --- !u!114 &1465887417
 MonoBehaviour:
   m_ObjectHideFlags: 0

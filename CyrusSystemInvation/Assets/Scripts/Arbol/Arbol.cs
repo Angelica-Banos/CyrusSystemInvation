@@ -7,6 +7,7 @@ public class Arbol : MonoBehaviour
     public List<Vertice> vertices = new List<Vertice>();
     private int profundidadMaxima = 5;
 
+
     private void Awake()
     {
         GenerarArbolAleatorio();
@@ -33,8 +34,9 @@ public class Arbol : MonoBehaviour
         if (nivel >= profundidadMaxima) return;
 
         // Decide aleatoriamente si crea hijo izquierdo y/o derecho
-        bool crearIzq = Random.value > 0.1;
-        bool crearDer = Random.value > 0.1;
+         bool crearIzq = Random.value > 0.1f ;
+         bool crearDer = Random.value > 0.1f ;
+
 
         if (crearIzq)
         {

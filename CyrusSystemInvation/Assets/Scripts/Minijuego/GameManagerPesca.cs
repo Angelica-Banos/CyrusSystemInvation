@@ -230,7 +230,8 @@ public class GameManagerPesca : MonoBehaviour
         if (puntajeActual >= objetivoMinimo)
         {
             GameManager.Instance.EscenaActual.completado = true;
-            SceneManager.LoadScene("Nodo_02"); // si alcanzó el objetivo
+            GameManager.Instance.minijuego2win = true;
+            SceneManager.LoadScene(3); // si alcanzó el objetivo
         }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); // si no, reinicia el minijuego
