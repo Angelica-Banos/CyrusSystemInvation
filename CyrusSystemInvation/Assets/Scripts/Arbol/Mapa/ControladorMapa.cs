@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ControladorMapa : MonoBehaviour
 {
     public List<GameObject> vertices = new List<GameObject>();
+    public List<GameObject> nodoseguro;
     public GameObject mapa;
     public GameManager gameManager;
     public int busc;
@@ -16,8 +17,15 @@ public class ControladorMapa : MonoBehaviour
         ActualizarMapa();
         Debug.LogWarning("El nodo es: " + vertices[gameManager.EscenaActual.identificador]);
         vertices[gameManager.EscenaActual.identificador].GetComponent<Image>().color = Color.red;
-        //vertices[busc].GetComponent<Image >().color = Color.green;
+        buscado(busc);
 
+    }
+    public void buscado(int bus) {
+        
+        int bus1 = bus - 30;
+        nodoseguro[bus1].SetActive(true);
+        nodoseguro[bus1].GetComponent<Image>().color = Color.green;
+        
     }
     public void ColorearNodoActual()
     {
