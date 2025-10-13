@@ -43,21 +43,28 @@ public class GameManagerPesca : MonoBehaviour
         juegoActivo = true;
         panelMensaje.SetActive(false);
 
-        if (WebCamTexture.devices.Length > 0)
+        try
         {
-            camaraWeb = new WebCamTexture();
-            vistaCamara.texture = camaraWeb;
-            camaraWeb.Play();
+            if (WebCamTexture.devices.Length > 0)
+            {
+                camaraWeb = new WebCamTexture();
+                vistaCamara.texture = camaraWeb;
+                camaraWeb.Play();
+                Debug.Log("📷 Cámara iniciada correctamente.");
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ No se detectó cámara en el dispositivo.");
+            }
         }
-        else
+        catch (System.Exception e)
         {
-            Debug.LogWarning("No se detectó cámara.");
+            Debug.LogError("❌ Error al intentar iniciar la cámara: " + e.Message);
         }
 
         StartCoroutine(GenerarPeces());
         ActualizarPuntaje();
     }
-
 
     void Update()
     {
@@ -72,12 +79,12 @@ public class GameManagerPesca : MonoBehaviour
         tiempoRestante -= Time.deltaTime;
         textoTiempo.text = "Tiempo: " + Mathf.CeilToInt(tiempoRestante) + "s";
 
-        // 🔹 Cada 5 segundos tomar una foto
+        // Cada 5 segundos tomar una foto
         contadorFoto += Time.deltaTime;
         if (contadorFoto >= intervaloFoto)
         {
             contadorFoto = 0f;
-            TomarFoto();   // 🔸 Este es el que llama el método de la cámara
+            TomarFoto();
         }
 
         // Cuando se acaba el tiempo
@@ -86,7 +93,6 @@ public class GameManagerPesca : MonoBehaviour
             FinalizarJuego();
         }
     }
-
 
     IEnumerator GenerarPeces()
     {
@@ -104,10 +110,7 @@ public class GameManagerPesca : MonoBehaviour
         SpriteRenderer sr = nuevoPez.GetComponent<SpriteRenderer>();
         sr.sprite = sprite;
 
-        // Ajuste de tamaño al Canvas
         nuevoPez.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
-
-        // Posición aleatoria
         float y = Random.Range(-2.5f, 2.5f);
         nuevoPez.transform.localPosition = new Vector3(-12f, y, 0f);
 
@@ -131,61 +134,66 @@ public class GameManagerPesca : MonoBehaviour
             Destroy(pez);
     }
 
-    // 🔸 Método original que mantiene la resolución y aplica pixelado real
+    // 📸 Método protegido con try-catch
     void TomarFoto()
     {
-        if (camaraWeb == null || !camaraWeb.isPlaying) return;
-
-        // Captura de la textura original
-        Texture2D foto = new Texture2D(camaraWeb.width, camaraWeb.height);
-        foto.SetPixels(camaraWeb.GetPixels());
-        foto.Apply();
-
-        // 🔸 Aplica efecto pixelado reduciendo resolución y reescalando
-        int factorPixel = 20; // cuanto más alto, más pixelado (recomiendo entre 10 y 30)
-        Texture2D pixelada = new Texture2D(foto.width / factorPixel, foto.height / factorPixel);
-
-        for (int y = 0; y < pixelada.height; y++)
+        try
         {
-            for (int x = 0; x < pixelada.width; x++)
+            if (camaraWeb == null || !camaraWeb.isPlaying)
             {
-                Color colorPromedio = foto.GetPixelBilinear((float)x / pixelada.width, (float)y / pixelada.height);
-                pixelada.SetPixel(x, y, colorPromedio);
+                Debug.LogWarning("⚠️ No se puede tomar foto: cámara no disponible o detenida.");
+                return;
             }
-        }
-        pixelada.Apply();
 
-        // Escalar hacia arriba de nuevo (manteniendo el efecto pixelado)
-        Texture2D final = new Texture2D(foto.width, foto.height);
-        for (int y = 0; y < final.height; y++)
+            Texture2D foto = new Texture2D(camaraWeb.width, camaraWeb.height);
+            foto.SetPixels(camaraWeb.GetPixels());
+            foto.Apply();
+
+            // Aplica efecto pixelado
+            int factorPixel = 20;
+            Texture2D pixelada = new Texture2D(foto.width / factorPixel, foto.height / factorPixel);
+
+            for (int y = 0; y < pixelada.height; y++)
+            {
+                for (int x = 0; x < pixelada.width; x++)
+                {
+                    Color colorPromedio = foto.GetPixelBilinear((float)x / pixelada.width, (float)y / pixelada.height);
+                    pixelada.SetPixel(x, y, colorPromedio);
+                }
+            }
+            pixelada.Apply();
+
+            Texture2D final = new Texture2D(foto.width, foto.height);
+            for (int y = 0; y < final.height; y++)
+            {
+                for (int x = 0; x < final.width; x++)
+                {
+                    Color colorPixel = pixelada.GetPixelBilinear((float)x / final.width, (float)y / final.height);
+                    final.SetPixel(x, y, colorPixel);
+                }
+            }
+            final.Apply();
+
+            Sprite spriteFoto = Sprite.Create(final, new Rect(0, 0, final.width, final.height), new Vector2(0.5f, 0.5f));
+
+            GameObject nuevoPez = Instantiate(prefabImagen, contenedorPeces);
+            nuevoPez.GetComponent<SpriteRenderer>().sprite = spriteFoto;
+            nuevoPez.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
+            float yPos = Random.Range(-2.5f, 2.5f);
+            nuevoPez.transform.localPosition = new Vector3(-12f, yPos, 0f);
+
+            Pez scriptPez = nuevoPez.GetComponent<Pez>();
+            if (scriptPez == null) scriptPez = nuevoPez.AddComponent<Pez>();
+            scriptPez.esFotoJugador = true;
+
+            pecesActivos.Add(nuevoPez);
+            StartCoroutine(MoverPez(nuevoPez));
+        }
+        catch (System.Exception e)
         {
-            for (int x = 0; x < final.width; x++)
-            {
-                Color colorPixel = pixelada.GetPixelBilinear((float)x / final.width, (float)y / final.height);
-                final.SetPixel(x, y, colorPixel);
-            }
+            Debug.LogError("❌ Error al intentar tomar foto o acceder a la cámara: " + e.Message);
         }
-        final.Apply();
-
-        // Crear sprite desde la imagen pixelada
-        Sprite spriteFoto = Sprite.Create(final, new Rect(0, 0, final.width, final.height), new Vector2(0.5f, 0.5f));
-
-        // Instanciar como pez (foto del jugador)
-        GameObject nuevoPez = Instantiate(prefabImagen, contenedorPeces);
-        nuevoPez.GetComponent<SpriteRenderer>().sprite = spriteFoto;
-        nuevoPez.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
-        float yPos = Random.Range(-2.5f, 2.5f);
-        nuevoPez.transform.localPosition = new Vector3(-12f, yPos, 0f);
-
-        // 🔹 Marcar que este pez es una foto del jugador
-        Pez scriptPez = nuevoPez.GetComponent<Pez>();
-        if (scriptPez == null) scriptPez = nuevoPez.AddComponent<Pez>();
-        scriptPez.esFotoJugador = true;
-
-        pecesActivos.Add(nuevoPez);
-        StartCoroutine(MoverPez(nuevoPez));
     }
-
 
     public void Pescar(GameObject pez, bool esFotoJugador)
     {
@@ -198,7 +206,6 @@ public class GameManagerPesca : MonoBehaviour
         puntajeActual++;
         ActualizarPuntaje();
 
-        // Mostrar mensaje solo si era una foto tomada por la cámara
         if (esFotoJugador)
             MostrarMensaje("¡Bien hecho! Capturaste información sensible.");
     }
@@ -224,25 +231,27 @@ public class GameManagerPesca : MonoBehaviour
 
     void FinalizarJuego()
     {
-        if (WebCamTexture.devices.Length > 0)
+        try
         {
-            camaraWeb.Stop();
+            if (camaraWeb != null && camaraWeb.isPlaying)
+                camaraWeb.Stop();
         }
-        else
+        catch (System.Exception e)
         {
-            Debug.LogWarning("No se detectó cámara.");
+            Debug.LogWarning("⚠️ Error al detener la cámara: " + e.Message);
         }
+
         juegoActivo = false;
-        
-        
 
         if (puntajeActual >= objetivoMinimo)
         {
             GameManager.Instance.EscenaActual.completado = true;
             GameManager.Instance.minijuego2win = true;
-            SceneManager.LoadScene(3); // si alcanzó el objetivo
+            SceneManager.LoadScene(3);
         }
         else
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // si no, reinicia el minijuego
-    }
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }

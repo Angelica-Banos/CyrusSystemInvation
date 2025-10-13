@@ -30,7 +30,7 @@ public class ControladorMapa : MonoBehaviour
     public void ColorearNodoActual()
     {
         vertices[gameManager.EscenaActual.identificador].GetComponent<Image>().color = Color.red;
-        vertices[busc].GetComponent<Image>().color = Color.green;
+
     }
     private void Update()
     {
