@@ -13,6 +13,7 @@ public class GameManagerPesca : MonoBehaviour
     private int puntajeActual = 0;
     private float tiempoRestante;
     private bool juegoActivo = false;
+    public CanvasGroup grupoCanvas;
 
     [Header("Cámara del jugador")]
     public RawImage vistaCamara;
@@ -207,7 +208,8 @@ public class GameManagerPesca : MonoBehaviour
         ActualizarPuntaje();
 
         if (esFotoJugador)
-            MostrarMensaje("¡Bien hecho! Capturaste información sensible.");
+            StartCoroutine(MostrarMensaje());
+
     }
 
     void ActualizarPuntaje()
@@ -216,12 +218,16 @@ public class GameManagerPesca : MonoBehaviour
             textoPuntaje.text = "Puntaje: " + puntajeActual;
     }
 
-    void MostrarMensaje(string mensaje)
+    public IEnumerator MostrarMensaje()
     {
-        panelMensaje.SetActive(true);
-        textoMensaje.text = mensaje;
         Time.timeScale = 0f;
+        panelMensaje.SetActive(true);
+        yield return new WaitForSecondsRealtime(1f);
+        panelMensaje.SetActive(false);
+        Time.timeScale = 1f;
     }
+
+
 
     public void CerrarMensaje()
     {
