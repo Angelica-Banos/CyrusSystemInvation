@@ -2726,7 +2726,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6adc8493d37dfb149860f3b68b016055, type: 3}
+  m_Resource: {fileID: 8300000, guid: e5fe476884dae1f43af26b8ad679164c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2825,8 +2825,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   audiowin: {fileID: 0}
-  audionodos: {fileID: 8300000, guid: 6adc8493d37dfb149860f3b68b016055, type: 3}
-  audioplataformer: {fileID: 8300000, guid: eeee2784cc4fde747b07b925c8c42521, type: 3}
+  audionodos: {fileID: 8300000, guid: e5fe476884dae1f43af26b8ad679164c, type: 3}
+  audioplataformer: {fileID: 8300000, guid: e5fe476884dae1f43af26b8ad679164c, type: 3}
 --- !u!4 &2107420292
 Transform:
   m_ObjectHideFlags: 0
