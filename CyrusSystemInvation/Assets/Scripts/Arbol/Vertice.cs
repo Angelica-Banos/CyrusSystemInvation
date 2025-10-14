@@ -6,7 +6,7 @@ public class Vertice
     private static int contadorId = 0;
 
     public int id { get; private set; }
-    public string nombreEscena;
+    public string nombreEscena; //Nombre del nodo, no del nodo en escenas
     public int profundidad;
     public int identificador;
     public Vertice izquierdo;

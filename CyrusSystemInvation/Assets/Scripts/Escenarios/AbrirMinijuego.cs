@@ -21,29 +21,37 @@ public class AbrirMinijuego : MonoBehaviour
 
             if (escenaActual == indiceSoloQuitar || escenaActual == 5)
             {
-                // 🔴 En esta escena, solo eliminar un objeto
-                if (objetoAEliminar != null)
+                // En esta escena, solo eliminar un objeto
+                Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                if (Physics.Raycast(ray, out RaycastHit hit, distanciaInteraccion))
                 {
-                    Destroy(objetoAEliminar);
-                    Debug.Log("Objeto eliminado en la escena con índice " + escenaActual);
-                }
-                else
-                {
-                    if(objetoAEliminar2 != null)
+                    if (hit.collider.gameObject == gameObject)
                     {
-                        Destroy(objetoAEliminar2);
-                        Debug.Log("Objeto 2 eliminado en la escena con índice " + escenaActual);
+                        if (objetoAEliminar != null)
+                        {
+                            Destroy(objetoAEliminar);
+                            Debug.Log("Objeto eliminado en la escena con índice " + escenaActual);
+                        }
+                        else
+                        {
+                            if (objetoAEliminar2 != null)
+                            {
+                                Destroy(objetoAEliminar2);
+                                Debug.Log("Objeto 2 eliminado en la escena con índice " + escenaActual);
+                            }
+                            else
+                                Debug.LogWarning("No hay objeto asignado para eliminar en esta escena.");
+                        }
                     }
-                    else
-                        Debug.LogWarning("No hay objeto asignado para eliminar en esta escena.");
                 }
+                
             }
             else
             {
                 
                 if (escenaActual == nodo1)
                 {
-                    // 🟢 En las demás escenas, abrir el minijuego
+                    //  En las demás escenas, abrir el minijuego
                     if (!minijuegoCargado)
                     {
                         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);

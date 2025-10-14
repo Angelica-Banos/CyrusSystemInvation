@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,13 +9,20 @@ public class Objetodeinteraccion : MonoBehaviour
     void Start() {
         gameManager = GameManager.Instance;
     }
-    public virtual void Interaccion() { 
-        if(gameManager.EscenaActual.izquierdo.esNodoBuscado || gameManager.EscenaActual.derecho.esNodoBuscado)
+    public virtual void Interaccion() {
+        if (gameManager.EscenaActual.izquierdo == null && gameManager.EscenaActual.derecho== null)
+        {
+            Debug.Log("no hay nada en ningun nodo lol");
+            return;
+        }
+
+        if(JuegoGanado() )
         {
             Debug.Log("Has ganado el juego");
             GameManager.Instance.GanasteElJuego();
             return;
         }
+        
         if (id == 0)
         {
             Debug.Log("Has interactuado con el objeto Derecha");
@@ -54,8 +62,20 @@ public class Objetodeinteraccion : MonoBehaviour
 
         }
         else { 
-            Debug.Log("soplapollas" +
-                "");
+            Debug.Log("Otra instancia de objeto interactuable");
         }
+    }
+
+    private Boolean JuegoGanado()
+    {
+        //Si el derecho existe y es el nodo buscado, o si el izquierdo existe y es el nodo buscado, entonces ganaste
+        if (gameManager.EscenaActual.derecho != null && gameManager.EscenaActual.derecho.esNodoBuscado)
+        {
+            return true;
+        }else if( gameManager.EscenaActual.izquierdo != null && gameManager.EscenaActual.izquierdo.esNodoBuscado)
+        {
+            return true;
+        }
+        return false;
     }
 }

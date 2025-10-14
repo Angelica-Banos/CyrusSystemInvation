@@ -13,16 +13,22 @@ public class ControladorMapa : MonoBehaviour
     public List<int> nodosExistentes = new List<int>();
     private void Start()
     {
+       
         gameManager = GameManager.Instance;
+        if (gameManager == null)
+        {
+            Debug.LogError("No se encontró una instancia de GameManager en la escena.");
+            return;
+        }
         ActualizarMapa();
-        Debug.LogWarning("El nodo es: " + vertices[gameManager.EscenaActual.identificador]);
+        Debug.LogWarning("El nodo actual es: " + vertices[gameManager.EscenaActual.identificador]);
         vertices[gameManager.EscenaActual.identificador].GetComponent<Image>().color = Color.red;
         buscado(busc);
 
     }
     public void buscado(int bus) {
         
-        int bus1 = bus - 30;
+        int bus1 = bus - 31;
         nodoseguro[bus1].SetActive(true);
         nodoseguro[bus1].GetComponent<Image>().color = Color.green;
         

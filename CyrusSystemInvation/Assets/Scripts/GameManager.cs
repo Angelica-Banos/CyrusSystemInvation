@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         arbol = GetComponent<Arbol>();
-
+        EscenaActual = arbol.raiz;  
     }
    
     public void ActualizarNodoIz()
@@ -71,11 +71,11 @@ public class GameManager : MonoBehaviour
         if (EscenaActual != null && EscenaActual.izquierdo != null)
         {
             EscenaActual = EscenaActual.izquierdo;
-            Debug.Log($"➡ Movido al nodo derecho: {EscenaActual.nombreEscena}");
+            Debug.Log($"➡ Movido al nodo izquierdo: {EscenaActual.nombreEscena}");
         }
         else
         {
-            Debug.LogWarning("⚠ No hay nodo derecho disponible desde la escena actual.");
+            Debug.LogWarning("⚠ No hay nodo izquierdo disponible desde la escena actual.");
         }
 
     }
@@ -105,31 +105,34 @@ public class GameManager : MonoBehaviour
 
         if (piso == null)
         {
-            Debug.LogWarning("No se encontr� ning�n objeto con el tag 'Piso'.");
+            Debug.LogWarning("No se encontró ningún objeto con el tag 'Piso'.");
         }
         else
         {
             Debug.Log("Piso encontrado: " + piso.name);
+            if (EscenaActual.completado == true)
+            {
+                piso.SetActive(false);
+            }
+            else
+            {
+                piso.SetActive(true);
+            }
         }
-        if(EscenaActual.completado == true) { 
-            piso.SetActive(false);
-        }
-        else { 
-            piso.SetActive(true);
-        }
+       
         // Si el árbol no está asignado, lo buscamos de nuevo
         if (arbol == null)
         {
             arbol = FindFirstObjectByType<Arbol>();
             if (arbol != null)
-                Debug.Log($"🌱 Árbol asignado en la escena: {scene.name}");
+                Debug.Log($" Árbol asignado en la escena: {scene.name}");
         }
 
         // Buscar mapa visual en la nueva escena
         MapaVisual mapa = FindFirstObjectByType<MapaVisual>();
         if (mapa != null && arbol != null)
         {
-            Debug.Log($"🗺 MapaVisual encontrado en la escena {scene.name}, configurando...");
+            Debug.Log($" MapaVisual encontrado en la escena {scene.name}, configurando...");
 
             // Configurar el mapa con el árbol actual
             mapa.Configurar(arbol);
@@ -147,7 +150,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("⚠ No se encontró el prefab 'CanvasTituloEscena' en la carpeta Recursos.");
+            Debug.LogWarning("No se encontró el prefab 'CanvasTituloEscena' en la carpeta Recursos.");
         }
     }
 
@@ -156,11 +159,11 @@ public class GameManager : MonoBehaviour
     {
         if (EscenaActual == null)
         {
-            Debug.LogWarning("⚠ No se puede cargar la escena actual: el nodo actual es nulo.");
+            Debug.LogWarning("No se puede cargar la escena actual: el nodo actual es nulo.");
             return;
         }
 
-        Debug.Log($"🎬 Cargando escena: {EscenaActual.nombreEscena}");
+        Debug.Log($"Cargando escena: {EscenaActual.nombreEscena}");
         SceneManager.LoadScene(EscenaActual.nombreEscena);
     }
 
@@ -224,16 +227,17 @@ public class GameManager : MonoBehaviour
             case "Nodo_01":
                 return new string[]
                 {
-               "Captura todos los archivos que puedas para corromperlos",
-                "Utiliza WASD para moverte",
-                "Utiliza E para interactuar"
+                "Selecciona la opcion correcta",
+                "Utiliza CLICK para interactuar"
+               
                 };
 
             case "Nodo_02":
                 return new string[]
                 {
-                 "Selecciona la opcion correcta",            
-                "Utiliza  CLICK para interactuar"
+                "Captura todos los archivos que puedas para corromperlos",
+                "Utiliza WASD para moverte",
+                "Utiliza E para interactuar"
                 };
             case "Nodo_04":
                 return new string[]
@@ -241,16 +245,17 @@ public class GameManager : MonoBehaviour
                  "???",
                  "LLega al final sin desaparecer",
                   "Utiliza WASD para moverte",
-                  "Utiliza Ctrl para agacharte",
-                  "Utiliza espacio para saltar",
-                "Utiliza  E para interactuar"
+                  "        Ctrl para agacharte",
+                  "        Espacio para saltar",
+                  "        E para interactuar"
                 };
             case "Nodo_seguro":
                 return new string[]
                 {
                  
-                 "Felicidades",
-                  "Estas a nada de terminar cumplir tu mision !",
+                 "Felicidades [CY.rus]",
+                  "¡ Estas a nada de terminar cumplir tu mision !",
+                  "Ahora ve al mundo exterior, ESCAPA",
                   "Utiliza WASD para moverte"
                 };
 
