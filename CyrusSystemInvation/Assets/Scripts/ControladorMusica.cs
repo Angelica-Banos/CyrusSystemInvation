@@ -52,8 +52,13 @@ public class ControladorMusica : MonoBehaviour
 
     private void CambiarMusica(int indexEscena)
     {
+        if (indexEscena == 10)
+        {
+            audioSource.Pause();
+            return;
+        }
         AudioClip clipElegido;
-
+       
         if (indexEscena == 5)
             clipElegido = audioplataformer; // escena número 6
         else if (indexEscena == 6) {
@@ -68,5 +73,6 @@ public class ControladorMusica : MonoBehaviour
 
         audioSource.clip = clipElegido;
         audioSource.Play();
+        
     }
 }

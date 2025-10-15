@@ -5,7 +5,7 @@ public class EscenesMove : MonoBehaviour
 {
 
     public void Jugar() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(10);
 
     }
     public void Creditos() {
