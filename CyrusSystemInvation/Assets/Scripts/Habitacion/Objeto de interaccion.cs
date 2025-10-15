@@ -10,60 +10,69 @@ public class Objetodeinteraccion : MonoBehaviour
         gameManager = GameManager.Instance;
     }
     public virtual void Interaccion() {
-        if (gameManager.EscenaActual.izquierdo == null && gameManager.EscenaActual.derecho== null)
+        try
         {
-            Debug.Log("no hay nada en ningun nodo lol");
-            return;
-        }
-
-        if(JuegoGanado() )
-        {
-            Debug.Log("Has ganado el juego");
-            GameManager.Instance.GanasteElJuego();
-            return;
-        }
-        
-        if (id == 0)
-        {
-            Debug.Log("Has interactuado con el objeto Derecha");
-            if (gameManager.EscenaActual.derecho == null)
+            if (gameManager.EscenaActual.izquierdo == null && gameManager.EscenaActual.derecho == null)
             {
-                // aviso
-                Debug.Log("no hay nada a la derecha");
+                Debug.Log("no hay nada en ningun nodo lol");
+                return;
+            }
+
+            if (JuegoGanado())
+            {
+                Debug.Log("Has ganado el juego");
+                GameManager.Instance.GanasteElJuego();
+                return;
+            }
+
+            if (id == 0)
+            {
+                Debug.Log("Has interactuado con el objeto Derecha");
+                if (gameManager.EscenaActual.derecho == null)
+                {
+                    // aviso
+                    Debug.Log("no hay nada a la derecha");
+                }
+                else
+                {
+                    Debug.Log(gameManager.EscenaActual.derecho.identificador);
+                    GameManager.Instance.ActualizarNodoDe();
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            }
+            else if (id == 1)
+            {
+                Debug.Log("Has interactuado con el objeto Izquierda");
+                if (gameManager.EscenaActual.izquierdo == null)
+                {
+                    // aviso
+                    Debug.Log("no hay nada a la izquierda");
+
+                }
+                else
+                {
+                    Debug.Log(gameManager.EscenaActual.izquierdo.identificador);
+                    GameManager.Instance.ActualizarNodoIz();
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            }
+            else if (id == 2)
+            {
+                Debug.Log("Has interactuado con el objeto de la Base");
+                GameManager.Instance.ActualizarBase();
+                UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
             }
             else
             {
-                Debug.Log(gameManager.EscenaActual.derecho.identificador);
-                GameManager.Instance.ActualizarNodoDe();
-                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Debug.Log("Otra instancia de objeto interactuable");
             }
         }
-        else if (id == 1)
+        catch
         {
-            Debug.Log("Has interactuado con el objeto Izquierda");
-            if (gameManager.EscenaActual.izquierdo == null)
-            {
-                // aviso
-                Debug.Log("no hay nada a la izquierda");
-
-            }
-            else
-            {
-                Debug.Log(gameManager.EscenaActual.izquierdo.identificador);
-                GameManager.Instance.ActualizarNodoIz();
-                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            Debug.LogError("ERROR FATAL ERROR FATAL ELIMINANDO SYSTEM.32");
         }
-        else if (id == 2)
-        {
-            Debug.Log("Has interactuado con el objeto de la Base");
-            GameManager.Instance.ActualizarBase();
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
-
-        }
-        else { 
-            Debug.Log("Otra instancia de objeto interactuable");
-        }
+       
     }
 
     private Boolean JuegoGanado()
