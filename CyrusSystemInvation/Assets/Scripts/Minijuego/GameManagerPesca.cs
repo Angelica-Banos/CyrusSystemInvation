@@ -17,6 +17,7 @@ public class GameManagerPesca : MonoBehaviour
 
     [Header("Cámara del jugador")]
     public RawImage vistaCamara;
+    public RawImage vistaCamaraPanel;
     private WebCamTexture camaraWeb;
 
     [Header("Peces e imágenes")]
@@ -50,6 +51,7 @@ public class GameManagerPesca : MonoBehaviour
             {
                 camaraWeb = new WebCamTexture();
                 vistaCamara.texture = camaraWeb;
+                vistaCamaraPanel.texture = camaraWeb;
                 camaraWeb.Play();
                 Debug.Log("📷 Cámara iniciada correctamente.");
             }
