@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class BloqueScript : Objetodeinteraccion
 {
@@ -14,13 +16,28 @@ public class BloqueScript : Objetodeinteraccion
     }
     public override void Interaccion()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 11) {
+            if (numero == 0)
+            {
+                rend.material.color = Color.green;
+                
+            }
+            else
+            {
+                rend.material.color = Color.red;
+            }
+
+        }
+        else { 
         if (numero == 0)
         {
             rend.material.color = Color.green;
             gameManager.contraseñas();
         }
-        else {
+        else
+        {
             rend.material.color = Color.red;
-        }
+        } 
+    }
     }
 }

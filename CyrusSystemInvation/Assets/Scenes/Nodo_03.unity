@@ -3853,6 +3853,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 249642279247871171, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: distance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 249642279247871171, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: textDetect
       value: 
       objectReference: {fileID: 668764290}

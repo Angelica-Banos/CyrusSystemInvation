@@ -195,6 +195,8 @@ public class GameManager : MonoBehaviour
                 return "Infección progresiva";
             case "Nodo_seguro":
                 return "Central";
+            case "Tutorial":
+                return "Tutorial";
             default:
                 return " ";
         }
@@ -257,6 +259,16 @@ public class GameManager : MonoBehaviour
                   "¡ Estas a nada de terminar cumplir tu mision !",
                   "Ahora ve al mundo exterior, ESCAPA",
                   "Utiliza WASD para moverte"
+                };
+            case "Tutorial":
+                return new string[]
+                {
+
+                 "Bienvenido a la invasion cibernetica.",
+                 "Preparate para infiltrarte en el sistema.",
+                 "Utiliza WASD para moverte.",
+                 "Utiliza E para interactuar.",
+                 "Prueba todo lo que puedas y diviertete.",
                 };
 
             default:

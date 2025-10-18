@@ -12,6 +12,9 @@ public class EscenesMove : MonoBehaviour
         SceneManager.LoadScene(9);
     }
 
+    public void tutorial() { 
+        SceneManager.LoadScene(11);
+    }
     public void Titulo()
     {
         SceneManager.LoadScene(0);

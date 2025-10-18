@@ -63,6 +63,10 @@ public class Objetodeinteraccion : MonoBehaviour
                 UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 
             }
+            else if(id == 4) {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+
+            }
             else
             {
                 Debug.Log("Otra instancia de objeto interactuable");

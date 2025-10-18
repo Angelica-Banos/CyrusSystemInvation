@@ -38,6 +38,7 @@ public class MenuPausa : MonoBehaviour
     }
     public void salir()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }
