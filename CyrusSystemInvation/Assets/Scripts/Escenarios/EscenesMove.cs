@@ -4,7 +4,11 @@ using UnityEngine.SceneManagement;
 public class EscenesMove : MonoBehaviour
 {
 
-    public void Jugar() {
+    public void JugarIntroduccion() {
+      
+        GameObject GameManager = new GameObject("GameManager");
+        GameManager.AddComponent<Arbol>();
+        GameManager.AddComponent<GameManager>();
         SceneManager.LoadScene(10);
 
     }
@@ -17,6 +21,7 @@ public class EscenesMove : MonoBehaviour
     }
     public void Titulo()
     {
+        
         SceneManager.LoadScene(0);
     }
     public void salir() {

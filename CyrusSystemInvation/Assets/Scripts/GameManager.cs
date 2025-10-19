@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviour
     public int contraseñacounter = 0;
     public GameObject piso;
 
+    [Header("Marcador")]
+    public float segundosTranscurridos;
+    public int cantidadNodosVisitados;
+    private float tiempo = 0f;
+    private bool ganador;
+
+
     public void contraseñas() { 
         contraseñacounter += 1;
         if(contraseñacounter >= 4) { 
@@ -27,9 +34,26 @@ public class GameManager : MonoBehaviour
             Debug.Log("Correo Completado");
             EscenaActual.completado = true;
     }
-   
 
-// --- Variables globales ---
+    void Update()
+    {
+        // Solo contar si el juego no está en pausa
+        if (!ganador)
+        {
+            // Sumar tiempo transcurrido desde el último frame
+            tiempo += Time.unscaledDeltaTime;
+
+            // Convertir a segundos completos
+            if (tiempo >= 1f)
+            {
+                int segundosAñadir = Mathf.FloorToInt(tiempo);
+                segundosTranscurridos += segundosAñadir;
+                tiempo -= segundosAñadir; // mantener el residuo de fracción de segundo
+            }
+        }
+    }
+
+    // --- Variables globales ---
 
     void Awake()
     {
@@ -44,6 +68,9 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        tiempo = 0;
+        cantidadNodosVisitados = 0;
+        ganador = false;
         // Buscar automáticamente el árbol si no está asignado
         if (arbol == null)
         {
@@ -71,6 +98,7 @@ public class GameManager : MonoBehaviour
         if (EscenaActual != null && EscenaActual.izquierdo != null)
         {
             EscenaActual = EscenaActual.izquierdo;
+            cantidadNodosVisitados = cantidadNodosVisitados + 1;
             Debug.Log($"➡ Movido al nodo izquierdo: {EscenaActual.nombreEscena}");
         }
         else
@@ -84,6 +112,7 @@ public class GameManager : MonoBehaviour
         if (EscenaActual != null && EscenaActual.derecho != null)
         {
             EscenaActual = EscenaActual.derecho;
+            cantidadNodosVisitados = cantidadNodosVisitados + 1;
             Debug.Log($"➡ Movido al nodo derecho: {EscenaActual.nombreEscena}");
         }
         else
@@ -94,6 +123,7 @@ public class GameManager : MonoBehaviour
 
     public void ActualizarBase() { 
         EscenaActual = arbol.raiz;
+        cantidadNodosVisitados = cantidadNodosVisitados + 1;
         Debug.Log($"➡ Movido al nodo : {EscenaActual.nombreEscena}");
     }
     
@@ -173,9 +203,11 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void GanasteElJuego() { 
+    public void GanasteElJuego() {
+        ganador = true;
         SceneManager.LoadScene(6);
     }
+
 
     // --- Devuelve un nombre más bonito para el título de cada escena ---
     public string ObtenerNombreBonito(string nombreEscena)

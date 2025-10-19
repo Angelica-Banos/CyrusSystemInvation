@@ -206,7 +206,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1139269566}
         m_TargetAssemblyTypeName: EscenesMove, Assembly-CSharp
-        m_MethodName: Jugar
+        m_MethodName: JugarIntroduccion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -632,80 +632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial
   URL: https://www.canva.com/design/DAG1bMx6-PU/9cCGlA0n7HwhHiyZwb4tCg/view?utm_content=DAG1bMx6-PU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he5d707698b
---- !u!1 &244712804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 244712806}
-  - component: {fileID: 244712805}
-  - component: {fileID: 244712807}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &244712805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244712804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2efab9c94c812d94da75a1cfae9cb2e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  EscenaActual:
-    nombreEscena: 
-    profundidad: 0
-    identificador: 0
-    completado: 0
-    esNodoBuscado: 0
-  MinijuegoActivo: 0
-  minijuego2win: 0
-  "contrase\xF1acounter": 0
-  piso: {fileID: 0}
---- !u!4 &244712806
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244712804}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270.78052, y: 0, z: 1213.1025}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &244712807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244712804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce8bf514a30c19147ac349413f926379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Arbol
-  raiz:
-    nombreEscena: 
-    profundidad: 0
-    identificador: 0
-    completado: 0
-    esNodoBuscado: 0
-  vertices: []
 --- !u!1 &375391687
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,6 +2960,5 @@ SceneRoots:
   - {fileID: 150538528}
   - {fileID: 1139269567}
   - {fileID: 1991819643}
-  - {fileID: 244712806}
   - {fileID: 7030277085465535711}
   - {fileID: 2107420292}

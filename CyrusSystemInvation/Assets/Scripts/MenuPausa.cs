@@ -39,6 +39,8 @@ public class MenuPausa : MonoBehaviour
     public void salir()
     {
         Time.timeScale = 1f;
+        Destroy(GameObject.Find("GameManager"));
+        Debug.LogError("GameManager Eliminado");
         SceneManager.LoadScene(0);
     }
 }
