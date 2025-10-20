@@ -6589,6 +6589,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5519088773879472835, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name
       value: FirstPersonController Variant

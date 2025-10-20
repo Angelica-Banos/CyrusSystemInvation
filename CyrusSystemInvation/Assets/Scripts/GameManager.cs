@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         tiempo = 0;
-        cantidadNodosVisitados = 0;
+        cantidadNodosVisitados = 1; //Empieza en 1 porque ya está en la base
         ganador = false;
         // Buscar automáticamente el árbol si no está asignado
         if (arbol == null)

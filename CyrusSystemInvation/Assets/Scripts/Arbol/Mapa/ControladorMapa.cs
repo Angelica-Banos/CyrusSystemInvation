@@ -28,7 +28,7 @@ public class ControladorMapa : MonoBehaviour
     }
     public void buscado(int bus) {
         
-        int bus1 = bus - 31;
+        int bus1 = bus - 30;
         nodoseguro[bus1].SetActive(true);
         nodoseguro[bus1].GetComponent<Image>().color = Color.green;
         

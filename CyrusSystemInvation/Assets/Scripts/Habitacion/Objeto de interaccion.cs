@@ -15,6 +15,13 @@ public class Objetodeinteraccion : MonoBehaviour
             if (gameManager.EscenaActual.izquierdo == null && gameManager.EscenaActual.derecho == null)
             {
                 Debug.Log("no hay nada en ningun nodo lol");
+                if (id == 2)
+                {
+                    Debug.Log("Has interactuado con el objeto de la Base");
+                    GameManager.Instance.ActualizarBase();
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
+                }
                 return;
             }
 
@@ -22,6 +29,13 @@ public class Objetodeinteraccion : MonoBehaviour
             {
                 Debug.Log("Has ganado el juego");
                 GameManager.Instance.GanasteElJuego();
+                if (id == 2)
+            {
+                Debug.Log("Has interactuado con el objeto de la Base");
+                GameManager.Instance.ActualizarBase();
+                UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
+            }
                 return;
             }
 
