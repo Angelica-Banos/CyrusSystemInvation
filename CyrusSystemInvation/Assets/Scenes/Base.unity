@@ -6597,6 +6597,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonController Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012191, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.530226
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012191, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7450892
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012191, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.2417665
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012191, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9998538
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012191, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01649908
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012191, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.004499371
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012191, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00007425307
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
