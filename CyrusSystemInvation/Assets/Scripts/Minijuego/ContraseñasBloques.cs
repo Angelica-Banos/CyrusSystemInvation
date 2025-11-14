@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ContraseñasBloques : MonoBehaviour
 {
     [Header("Prefab y cantidad")]
@@ -12,12 +13,12 @@ public class ContraseñasBloques : MonoBehaviour
 
     private List<GameObject> generados = new List<GameObject>();
 
-    [ContextMenu("Generar")]
     private void Start()
     {
         Generar();
     }
 
+    [ContextMenu("Generar")]
     public void Generar()
     {
         Limpiar();
@@ -39,17 +40,43 @@ public class ContraseñasBloques : MonoBehaviour
 
             // Instanciar el prefab
             GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
-            BloqueScript bloque = obj.GetComponent<BloqueScript>();
 
-            // Verificar si necesitamos más bloques con numero == 0
+            // Evitar posiciones idénticas si bounds Y es plano: añadir pequeño offset aleatorio en Y
+            obj.transform.position = new Vector3(pos.x, pos.y + Random.Range(0.0f, 0.15f), pos.z);
+
+            // Rotación fija aleatoria entre +Z, +X, -Z, -X
+            float[] angulosY = new float[] { 0f, 90f, 180f, 270f };
+            float ang = angulosY[Random.Range(0, angulosY.Length)];
+            obj.transform.rotation = Quaternion.Euler(0f, ang, 0f);
+
+            // Forzar tag y layer para que el Selecter lo detecte
+            int layerIndex = LayerMask.NameToLayer("Raycast Detect");
+            if (layerIndex != -1) obj.layer = layerIndex;
+            obj.tag = "Objeto Interactivo";
+
+            // Asegurar que tenga un collider 3D para los raycasts
+            if (obj.GetComponent<Collider>() == null)
+            {
+                var bc = obj.AddComponent<BoxCollider>();
+                // ajustar tamaño si hace falta: bc.size = ...
+            }
+
+            // Obtener el script y asignar número usando el método público
+            BloqueScript bloque = obj.GetComponent<BloqueScript>();
+            if (bloque == null)
+            {
+                Debug.LogWarning("Prefab instanciado no tiene BloqueScript.");
+                Destroy(obj);
+                continue;
+            }
             if (generadosConCero < 4)
             {
-                bloque.numero = 0;
+                bloque.SetNumero(0);
                 generadosConCero++;
             }
             else
             {
-                bloque.numero = Random.Range(1, 9);
+                bloque.SetNumero(Random.Range(1, 9));
             }
 
             generados.Add(obj);
@@ -60,7 +87,8 @@ public class ContraseñasBloques : MonoBehaviour
         {
             int index = Random.Range(0, generados.Count);
             BloqueScript bloque = generados[index].GetComponent<BloqueScript>();
-            bloque.numero = 0;
+            if (bloque != null)
+                bloque.SetNumero(0);
             generadosConCero++;
         }
 
