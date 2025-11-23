@@ -7,6 +7,8 @@ public class ControladorMapa : MonoBehaviour
 {
     public List<GameObject> vertices = new List<GameObject>();
     public List<GameObject> nodoseguro;
+    public GameObject mapaDesplegable;
+    public bool mapaActivo = false;
     public GameObject mapa;
     public GameManager gameManager;
     public int busc;
@@ -28,7 +30,7 @@ public class ControladorMapa : MonoBehaviour
     }
     public void buscado(int bus) {
         
-        int bus1 = bus - 30;
+        int bus1 = bus - 62;
         nodoseguro[bus1].SetActive(true);
         nodoseguro[bus1].GetComponent<Image>().color = Color.green;
         
@@ -40,7 +42,12 @@ public class ControladorMapa : MonoBehaviour
     }
     private void Update()
     {
-        if(gameManager.MinijuegoActivo)
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            mapaActivo = !mapaActivo;
+            mapaDesplegable.SetActive(mapaActivo);
+        }
+        if (gameManager.MinijuegoActivo)
         {
             mapa.SetActive(false);
         }
