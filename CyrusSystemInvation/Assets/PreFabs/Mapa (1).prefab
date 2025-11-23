@@ -1651,10 +1651,11 @@ MonoBehaviour:
   - {fileID: 1208049962317168040}
   - {fileID: 1010056054863879425}
   - {fileID: 206869479329059483}
+  nodoseguro: []
   mapa: {fileID: 119321045353933750}
   gameManager: {fileID: 0}
-  nodosExistentes: 
   busc: 0
+  nodosExistentes: 
 --- !u!1 &8937229276094072182
 GameObject:
   m_ObjectHideFlags: 0
