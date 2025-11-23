@@ -43,6 +43,7 @@ public class Arbol : MonoBehaviour
             Vertice izq = new Vertice($"Nodo_{vertices.Count}",nivel,(padre.identificador*2)+1);
             padre.izquierdo = izq;
             vertices.Add(izq);
+            izq.padre = padre;
             Debug.Log($"Creando nodo en nivel {nivel} con ID {izq.identificador} como hijo izquierdo de {padre.identificador}");  
             GenerarRamas(izq, nivel + 1);
         }
@@ -52,6 +53,7 @@ public class Arbol : MonoBehaviour
             Vertice der = new Vertice($"Nodo_{vertices.Count}",nivel,(padre.identificador * 2) + 2);
             padre.derecho = der;
             vertices.Add(der);
+            der.padre = padre;
             Debug.Log($"Creando nodo en nivel {nivel} con ID {der.identificador} como hijo derecho de {padre.identificador}");
             GenerarRamas(der, nivel + 1);
         }
