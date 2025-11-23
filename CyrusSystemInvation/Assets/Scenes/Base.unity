@@ -119,6 +119,91 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &8243213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 177002937761121836, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 177002937761121836, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838815658983052221, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1869149897}
+    - target: {fileID: 1838815658983052221, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MobileJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838815658983052221, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FirstPersonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838815658983052221, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749104858766728091, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_Name
+      value: BotonesAndroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505677071065036373, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.19485
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.50378
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.41318
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
 --- !u!1 &12160102
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +1024,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187657430}
   m_CullTransparentMesh: 1
+--- !u!114 &211762103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7505677071065036377, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+  m_PrefabInstance: {fileID: 8243213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &221095891
 GameObject:
   m_ObjectHideFlags: 0
@@ -6729,6 +6825,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 211762103}
+    - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: useSprintBar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name
       value: FirstPersonController Variant
@@ -9800,6 +9904,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851635027}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1869149897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
+  m_PrefabInstance: {fileID: 1255132219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1919326397
 GameObject:
   m_ObjectHideFlags: 0
@@ -11676,6 +11791,7 @@ SceneRoots:
   - {fileID: 1376354669}
   - {fileID: 1963181388}
   - {fileID: 905764573}
-  - {fileID: 2036088573}
   - {fileID: 1545305990}
   - {fileID: 1194135391}
+  - {fileID: 2036088573}
+  - {fileID: 8243213}
