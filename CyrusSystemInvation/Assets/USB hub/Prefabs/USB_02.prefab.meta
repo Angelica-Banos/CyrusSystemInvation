@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3faffb4631114434580303c874e6a9a5
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285682
+  packageName: USB hub port
+  packageVersion: 1.0
+  assetPath: Assets/USB hub/Prefabs/USB_02.prefab
+  uploadId: 669578

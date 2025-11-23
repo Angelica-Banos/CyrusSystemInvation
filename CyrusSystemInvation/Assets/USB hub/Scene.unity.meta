@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d75e11ce219de894e837154cb26506f5
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285682
+  packageName: USB hub port
+  packageVersion: 1.0
+  assetPath: Assets/USB hub/Scene.unity
+  uploadId: 669578
