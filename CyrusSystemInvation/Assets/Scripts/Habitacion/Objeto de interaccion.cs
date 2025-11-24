@@ -86,9 +86,9 @@ public class Objetodeinteraccion : MonoBehaviour
                 Debug.Log("Otra instancia de objeto interactuable");
             }
         }
-        catch
+        catch(Exception e)
         {
-            Debug.LogError("ERROR FATAL ERROR FATAL ELIMINANDO SYSTEM.32");
+            Debug.LogError(e.Message);
         }
        
     }

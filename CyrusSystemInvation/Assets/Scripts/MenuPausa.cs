@@ -23,10 +23,12 @@ public class MenuPausa : MonoBehaviour
     public void Resume()
     {
         menuPausaUI.SetActive(false);
-        Time.timeScale = 1f;
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Time.timeScale = 1f;
+
+        GameObject.Find("BotonesAndroid").GetComponent<ControlesAndroid>().mostrar();
     }
     public void Pause()
     {
@@ -35,6 +37,8 @@ public class MenuPausa : MonoBehaviour
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        GameObject.Find("BotonesAndroid").GetComponent<ControlesAndroid>().ocultar();
     }
     public void salir()
     {

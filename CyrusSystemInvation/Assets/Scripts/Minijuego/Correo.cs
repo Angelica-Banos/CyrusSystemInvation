@@ -330,6 +330,7 @@ public class Correo : MonoBehaviour
             {
                 Debug.LogError("Could not find GameObject named 'PlayerCamera' in the active scenes. Check the name and scene loading status.");
             }
+            GameObject.Find("BotonesAndroid").GetComponent<ControlesAndroid>().mostrar();
             SceneManager.UnloadScene(7);
 
             // Reanudar el juego 3D
@@ -338,6 +339,7 @@ public class Correo : MonoBehaviour
             // Volver a bloquear el cursor (si tu juego lo usa)
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.Cursor.visible = false;
+
         }
         else
         {

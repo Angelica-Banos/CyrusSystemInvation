@@ -11,10 +11,11 @@ public class AbrirMinijuego : MonoBehaviour
     public GameObject objetoAEliminar2;  //Otro Objeto a eliminar en esa escena
     public bool minijuegoCargado = false;
     public float distanciaInteraccion = 3f;
+    private bool androidE = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || androidE)
         {
             // Obtener el índice de la escena actual
             int escenaActual = SceneManager.GetActiveScene().buildIndex;
@@ -67,6 +68,8 @@ public class AbrirMinijuego : MonoBehaviour
                                 Cursor.lockState = CursorLockMode.None;
                                 Cursor.visible = true;
 
+                                GameObject.Find("BotonesAndroid").GetComponent<ControlesAndroid>().ocultar();
+
                                 Debug.Log("Minijuego cargado: escena " + indiceMinijuego);
                             }
                         }
@@ -96,6 +99,12 @@ public class AbrirMinijuego : MonoBehaviour
                     }
                 }
             }
+            androidE = false;
         }
+    }
+
+    public void androidEPresionado()
+    {
+        androidE = true;
     }
 }

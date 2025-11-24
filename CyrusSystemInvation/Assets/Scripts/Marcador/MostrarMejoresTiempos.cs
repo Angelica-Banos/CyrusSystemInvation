@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class MostrarMejoresTiempos : MonoBehaviour
 {
     public UnityAPIManager apiManager;
+    public TextMeshProUGUI marcadorTextMeshPro;
     private void Awake()
     {
         // Si no se asigna en el Inspector, intenta encontrarlo automáticamente
@@ -15,6 +17,29 @@ public class MostrarMejoresTiempos : MonoBehaviour
                 Debug.LogError("UnityAPIManager no encontrado. Asegúrate de que esté en la escena.");
             }
         }
+
+        if (apiManager != null && marcadorTextMeshPro != null)
+        {
+            CargarYMostrarMejoresTiempos();
+        }
+    }
+
+    public void CargarYMostrarMejoresTiempos()
+    {
+        marcadorTextMeshPro.text = "Cargando mejores tiempos...";
+
+        GetTopPlayersAsTextArray((textArray) =>
+        {
+            if (textArray == null || textArray.Length == 0)
+            {
+                marcadorTextMeshPro.text = "No hay datos de mejores tiempos disponibles.";
+                return;
+            }
+
+            string textoFinal = string.Join("\n", textArray);
+
+            marcadorTextMeshPro.text = textoFinal;
+        });
     }
 
     public void GetTopPlayersAsTextArray(System.Action<string[]> callback)

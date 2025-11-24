@@ -27,6 +27,7 @@ public class GameManagerPesca : MonoBehaviour
     private List<GameObject> pecesActivos = new List<GameObject>();
 
     [Header("Caña del jugador")]
+    public Joystick pescaJoystick;
     public GameObject caña;
     public float velocidadCaña = 5f;
 
@@ -74,8 +75,22 @@ public class GameManagerPesca : MonoBehaviour
         if (!juegoActivo) return;
 
         // Movimiento de la caña
-        float moverY = Input.GetAxis("Vertical") * velocidadCaña * Time.deltaTime;
-        float moverX = Input.GetAxis("Horizontal") * velocidadCaña * Time.deltaTime;
+        float verticalInput;
+        float horizontalInput;
+
+        if (pescaJoystick != null && (pescaJoystick.Horizontal != 0 || pescaJoystick.Vertical != 0))
+        {
+            verticalInput = pescaJoystick.Vertical;
+            horizontalInput = pescaJoystick.Horizontal;
+        }
+        else
+        {
+            verticalInput = Input.GetAxis("Vertical");
+            horizontalInput = Input.GetAxis("Horizontal");
+        }
+
+        float moverY = verticalInput * velocidadCaña * Time.deltaTime;
+        float moverX = horizontalInput * velocidadCaña * Time.deltaTime;
         caña.transform.Translate(moverX, moverY, 0);
 
         // Temporizador general del juego
