@@ -1644,14 +1644,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ControladorMapa
   vertices:
   - {fileID: 4856288385848567329}
-  - {fileID: 4856288385848567329}
   - {fileID: 7454232626073667754}
   - {fileID: 2031536258843325969}
   - {fileID: 3358432069000682425}
   - {fileID: 1208049962317168040}
   - {fileID: 1010056054863879425}
   - {fileID: 206869479329059483}
-  nodoseguro: []
+  nodoseguro:
+  - {fileID: 4279987740470443775}
+  - {fileID: 4123987828744372184}
+  - {fileID: 6332802826949255855}
+  - {fileID: 2375171862050008525}
+  - {fileID: 9020212695796479959}
+  - {fileID: 4182855170034185180}
+  - {fileID: 8937229276094072182}
+  - {fileID: 2680753104237675827}
   mapa: {fileID: 119321045353933750}
   gameManager: {fileID: 0}
   busc: 0

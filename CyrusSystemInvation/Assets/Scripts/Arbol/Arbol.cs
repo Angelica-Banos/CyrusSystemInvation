@@ -5,13 +5,13 @@ public class Arbol : MonoBehaviour
 {
     public Vertice raiz;
     public List<Vertice> vertices = new List<Vertice>();
-    private int profundidadMaxima = 5;
-
+    private int profundidadMaxima = 6;
+    public Vertice nodobuscado;
 
     private void Awake()
     {
         GenerarArbolAleatorio();
-        profundidadMaxima = 5;
+        
     }
 
     public void GenerarArbolAleatorio()
@@ -90,6 +90,7 @@ public class Arbol : MonoBehaviour
         }
         vertices.Add(nodoCentral);
         nodoCentral.esNodoBuscado = true;
+        nodobuscado = nodoCentral;
         Debug.Log($"Nodo Central Seguro conectado a la hoja {hojaElegida.nombreEscena}");
     }
 
