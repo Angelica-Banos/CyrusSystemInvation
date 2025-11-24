@@ -11,6 +11,7 @@ public class Vertice
     public int identificador;
     public Vertice izquierdo;
     public Vertice derecho;
+    public Vertice padre;
     public bool completado = false;
     public bool esNodoBuscado = false;
 

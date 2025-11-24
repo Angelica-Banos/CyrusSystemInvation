@@ -5,13 +5,13 @@ public class Arbol : MonoBehaviour
 {
     public Vertice raiz;
     public List<Vertice> vertices = new List<Vertice>();
-    private int profundidadMaxima = 5;
-
+    private int profundidadMaxima = 6;
+    public Vertice nodobuscado;
 
     private void Awake()
     {
         GenerarArbolAleatorio();
-        profundidadMaxima = 5;
+        
     }
 
     public void GenerarArbolAleatorio()
@@ -43,6 +43,7 @@ public class Arbol : MonoBehaviour
             Vertice izq = new Vertice($"Nodo_{vertices.Count}",nivel,(padre.identificador*2)+1);
             padre.izquierdo = izq;
             vertices.Add(izq);
+            izq.padre = padre;
             Debug.Log($"Creando nodo en nivel {nivel} con ID {izq.identificador} como hijo izquierdo de {padre.identificador}");  
             GenerarRamas(izq, nivel + 1);
         }
@@ -52,6 +53,7 @@ public class Arbol : MonoBehaviour
             Vertice der = new Vertice($"Nodo_{vertices.Count}",nivel,(padre.identificador * 2) + 2);
             padre.derecho = der;
             vertices.Add(der);
+            der.padre = padre;
             Debug.Log($"Creando nodo en nivel {nivel} con ID {der.identificador} como hijo derecho de {padre.identificador}");
             GenerarRamas(der, nivel + 1);
         }
@@ -88,6 +90,7 @@ public class Arbol : MonoBehaviour
         }
         vertices.Add(nodoCentral);
         nodoCentral.esNodoBuscado = true;
+        nodobuscado = nodoCentral;
         Debug.Log($"Nodo Central Seguro conectado a la hoja {hojaElegida.nombreEscena}");
     }
 

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public bool MinijuegoActivo = false, minijuego2win=false;
     public int contraseñacounter = 0;
     public GameObject piso;
-
+    public Arbol arbolaux;
     [Header("Marcador")]
     public float segundosTranscurridos;
     public int cantidadNodosVisitados;
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        arbolaux = arbol;
         // Solo contar si el juego no está en pausa
         if (!ganador)
         {

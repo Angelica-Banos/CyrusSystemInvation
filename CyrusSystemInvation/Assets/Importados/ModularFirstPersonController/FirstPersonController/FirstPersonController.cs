@@ -100,7 +100,7 @@ public class FirstPersonController : MonoBehaviour
 
     // Internal Variables
     private bool isGrounded = false;
-
+    private float jumpCooldownTimer = 0f;
     #endregion
 
     #region Crouch
@@ -116,6 +116,14 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 originalScale;
 
     #endregion
+    #endregion
+
+    #region Mobile Settings
+    public Joystick joystick;
+    public bool useMobileInput = false; 
+    public Vector2 mobileInputAxis;     
+    public bool mobileSprintPressed;    
+    public bool mobileJumpRequest;
     #endregion
 
     #region Head Bob
@@ -326,11 +334,14 @@ public class FirstPersonController : MonoBehaviour
         #region Jump
 
         // Gets input and calls jump method
-        if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        if(enableJump  && isGrounded && (Input.GetKeyDown(jumpKey) || mobileJumpRequest))
         {
             Jump();
         }
-
+        if (jumpCooldownTimer > 0)
+        {
+            jumpCooldownTimer -= Time.deltaTime;
+        }
         #endregion
 
         #region Crouch
@@ -370,8 +381,22 @@ public class FirstPersonController : MonoBehaviour
 
         if (playerCanMove)
         {
-            // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            float xInput = 0;
+            float zInput = 0;
+
+            // If we have a joystick linked, use it
+            if (joystick != null)
+            {
+                xInput = joystick.Horizontal;
+                zInput = joystick.Vertical;
+            }
+            if (xInput == 0 && zInput == 0)
+            {
+                xInput = Input.GetAxis("Horizontal");
+                zInput = Input.GetAxis("Vertical");
+            }
+
+            Vector3 targetVelocity = new Vector3(xInput, 0, zInput);
 
             // Checks if player is walking and isGrounded
             // Will allow head bob
@@ -384,20 +409,16 @@ public class FirstPersonController : MonoBehaviour
                 isWalking = false;
             }
 
-            // All movement calculations shile sprint is active
             if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
             {
                 targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
 
-                // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.linearVelocity;
+                Vector3 velocity = rb.linearVelocity; 
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
                 velocityChange.y = 0;
 
-                // Player is only moving when valocity change != 0
-                // Makes sure fov change only happens during movement
                 if (velocityChange.x != 0 || velocityChange.z != 0)
                 {
                     isSprinting = true;
@@ -415,7 +436,6 @@ public class FirstPersonController : MonoBehaviour
 
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
             }
-            // All movement calculations while walking
             else
             {
                 isSprinting = false;
@@ -427,7 +447,6 @@ public class FirstPersonController : MonoBehaviour
 
                 targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
 
-                // Apply a force that attempts to reach our target velocity
                 Vector3 velocity = rb.linearVelocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
@@ -466,10 +485,12 @@ public class FirstPersonController : MonoBehaviour
         {
             rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;
+            mobileJumpRequest = false;
+            jumpCooldownTimer = 0.2f;
         }
 
         // When crouched and using toggle system, will uncrouch for a jump
-        if(isCrouched && !holdToCrouch)
+        if (isCrouched && !holdToCrouch)
         {
             Crouch();
         }
@@ -525,6 +546,10 @@ public class FirstPersonController : MonoBehaviour
             timer = 0;
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
         }
+    }
+    public void MobileJump()
+    {
+        mobileJumpRequest = true;
     }
 }
 
@@ -588,6 +613,19 @@ public class FirstPersonController : MonoBehaviour
             EditorGUILayout.EndHorizontal();
             EditorGUI.indentLevel--; 
         }
+
+        GUILayout.Label("Mobile Input", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
+
+        fpc.useMobileInput = EditorGUILayout.ToggleLeft(new GUIContent("Enable Mobile Input", "Enable this to use the Joystick Pack for movement instead of WASD."), fpc.useMobileInput);
+
+        if (fpc.useMobileInput)
+        {
+            EditorGUI.indentLevel++;
+            // Ensure you have 'using UnityEngine.UI;' or the Joystick namespace if needed
+            fpc.joystick = (Joystick)EditorGUILayout.ObjectField(new GUIContent("Joystick Prefab", "Drag the Fixed Joystick from your Canvas hierarchy here."), fpc.joystick, typeof(Joystick), true);
+            EditorGUI.indentLevel--;
+        }
+        EditorGUILayout.Space();
 
         EditorGUILayout.Space();
 
@@ -736,6 +774,8 @@ public class FirstPersonController : MonoBehaviour
             SerFPC.ApplyModifiedProperties();
         }
     }
+
+    
 
 }
 
