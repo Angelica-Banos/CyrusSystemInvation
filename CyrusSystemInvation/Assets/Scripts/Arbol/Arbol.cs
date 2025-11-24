@@ -5,7 +5,7 @@ public class Arbol : MonoBehaviour
 {
     public Vertice raiz;
     public List<Vertice> vertices = new List<Vertice>();
-    private int profundidadMaxima = 6;
+    private int profundidadMaxima = 5;
     public Vertice nodobuscado;
 
     private void Awake()
