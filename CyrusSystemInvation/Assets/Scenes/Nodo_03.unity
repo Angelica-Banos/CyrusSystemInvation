@@ -3044,7 +3044,7 @@ PrefabInstance:
       objectReference: {fileID: 1227749437}
     - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: useMobileInput
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name
