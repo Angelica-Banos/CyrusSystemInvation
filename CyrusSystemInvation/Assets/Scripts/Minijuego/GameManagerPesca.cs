@@ -130,7 +130,7 @@ public class GameManagerPesca : MonoBehaviour
 
         nuevoPez.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
         float y = Random.Range(-2.5f, 2.5f);
-        nuevoPez.transform.localPosition = new Vector3(-12f, y, 0f);
+        nuevoPez.transform.localPosition = new Vector3(-12f, y, 6f);
 
         Pez pezScript = nuevoPez.AddComponent<Pez>();
         pezScript.esFotoJugador = esFotoJugador;
@@ -198,7 +198,7 @@ public class GameManagerPesca : MonoBehaviour
             nuevoPez.GetComponent<SpriteRenderer>().sprite = spriteFoto;
             nuevoPez.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
             float yPos = Random.Range(-2.5f, 2.5f);
-            nuevoPez.transform.localPosition = new Vector3(-12f, yPos, 0f);
+            nuevoPez.transform.localPosition = new Vector3(-12f, yPos, 6f);
 
             Pez scriptPez = nuevoPez.GetComponent<Pez>();
             if (scriptPez == null) scriptPez = nuevoPez.AddComponent<Pez>();
