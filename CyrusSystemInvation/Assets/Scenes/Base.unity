@@ -3721,7 +3721,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Objeto Interactivo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8911738812171060255, guid: 57f2b729c7fbba8458673156309543c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8911738812171060255, guid: 57f2b729c7fbba8458673156309543c7, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2475096743487729865, guid: 57f2b729c7fbba8458673156309543c7, type: 3}
     m_AddedGameObjects: []
@@ -4281,7 +4286,7 @@ PrefabInstance:
       objectReference: {fileID: 1140418455}
     - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: useMobileInput
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name

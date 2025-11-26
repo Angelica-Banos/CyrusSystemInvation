@@ -8,7 +8,7 @@ public class ControlesAndroid : MonoBehaviour
     public GameObject menuPausa;
     void Start()
     {
-        botones.SetActive(FirstPersonModularController.GetComponent<FirstPersonController>().enabled);
+        botones.SetActive(FirstPersonModularController.GetComponent<FirstPersonController>().useMobileInput);
 
         
     }
