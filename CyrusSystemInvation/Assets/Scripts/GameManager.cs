@@ -286,15 +286,7 @@ public class GameManager : MonoBehaviour
                   "        Espacio para saltar",
                   "        E para interactuar"
                 };
-            case "Nodo_seguro":
-                return new string[]
-                {
-                 
-                 "Felicidades [CY.rus]",
-                  "¡ Estas a nada de terminar cumplir tu mision !",
-                  "Ahora ve al mundo exterior, ESCAPA",
-                  "Utiliza WASD para moverte"
-                };
+           
             case "Tutorial":
                 return new string[]
                 {
