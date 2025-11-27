@@ -8,6 +8,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -124,6 +126,8 @@ public class FirstPersonController : MonoBehaviour
     public Vector2 mobileInputAxis;     
     public bool mobileSprintPressed;    
     public bool mobileJumpRequest;
+    public Joystick lookJoystick; 
+    public float mobileLookMultiplier = 2.0f;
     #endregion
 
     #region Head Bob
@@ -212,22 +216,32 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Camera
 
-        // Control camera movement
-        if(cameraCanMove)
+        if (cameraCanMove)
         {
-            yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+            float inputX, inputY;
 
-            if (!invertCamera)
+            if (useMobileInput && lookJoystick != null)
             {
-                pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+                inputX = lookJoystick.Horizontal * mobileLookMultiplier;
+                inputY = lookJoystick.Vertical * mobileLookMultiplier;
             }
             else
             {
-                // Inverted Y
-                pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                inputX = Input.GetAxis("Mouse X");
+                inputY = Input.GetAxis("Mouse Y");
             }
 
-            // Clamp pitch between lookAngle
+            yaw = transform.localEulerAngles.y + inputX * mouseSensitivity;
+
+            if (!invertCamera)
+            {
+                pitch -= mouseSensitivity * inputY;
+            }
+            else
+            {
+                pitch += mouseSensitivity * inputY;
+            }
+
             pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
 
             transform.localEulerAngles = new Vector3(0, yaw, 0);
@@ -409,7 +423,7 @@ public class FirstPersonController : MonoBehaviour
                 isWalking = false;
             }
 
-            if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
+            if (enableSprint && (Input.GetKey(sprintKey) ||mobileSprintPressed )&& sprintRemaining > 0f && !isSprintCooldown)
             {
                 targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
 
@@ -551,6 +565,32 @@ public class FirstPersonController : MonoBehaviour
     {
         mobileJumpRequest = true;
     }
+
+    public void StartMobileSprint()
+    {
+        mobileSprintPressed = true;
+    }
+
+    public void StopMobileSprint()
+    {
+        mobileSprintPressed = false;
+    }
+
+    public void StartMobileCrouch()
+    {
+        if (enableCrouch && !isCrouched)
+        {
+            Crouch();
+        }
+    }
+
+    public void StopMobileCrouch()
+    {
+        if (enableCrouch && isCrouched)
+        {
+            Crouch();
+        }
+    }
 }
 
 
@@ -621,8 +661,9 @@ public class FirstPersonController : MonoBehaviour
         if (fpc.useMobileInput)
         {
             EditorGUI.indentLevel++;
-            // Ensure you have 'using UnityEngine.UI;' or the Joystick namespace if needed
             fpc.joystick = (Joystick)EditorGUILayout.ObjectField(new GUIContent("Joystick Prefab", "Drag the Fixed Joystick from your Canvas hierarchy here."), fpc.joystick, typeof(Joystick), true);
+            fpc.lookJoystick = (Joystick)EditorGUILayout.ObjectField(new GUIContent("Look Joystick", "Right Stick (Use Dynamic/Variable)"), fpc.lookJoystick, typeof(Joystick), true);
+            fpc.mobileLookMultiplier = EditorGUILayout.Slider(new GUIContent("Mobile Look Speed", "Multiplier for touch sensitivity"), fpc.mobileLookMultiplier, 0.5f, 5f);
             EditorGUI.indentLevel--;
         }
         EditorGUILayout.Space();

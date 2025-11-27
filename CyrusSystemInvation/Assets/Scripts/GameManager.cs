@@ -207,6 +207,8 @@ public class GameManager : MonoBehaviour
     public void GanasteElJuego() {
         ganador = true;
         SceneManager.LoadScene(6);
+        GameObject.Find("BotonesAndroid").GetComponent<ControlesAndroid>().ocultar();
+        GameObject.Find("Ganaste").SetActive(true);
     }
 
 

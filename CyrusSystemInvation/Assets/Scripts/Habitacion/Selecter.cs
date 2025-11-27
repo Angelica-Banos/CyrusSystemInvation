@@ -6,6 +6,7 @@ public class Selecter : MonoBehaviour
     public float distance = 3f;
     public GameObject textDetect;
     public Texture2D cursorDetect;
+    private bool androidE = false;
     GameObject ultimoObjeto=null;
     void Start()
     {
@@ -24,9 +25,10 @@ public class Selecter : MonoBehaviour
             SelectedObject(hit.transform);
             if (hit.collider.tag == "Objeto Interactivo")
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) || androidE)
                 {
                     hit.collider.GetComponent<Objetodeinteraccion>().Interaccion();
+                    androidE = false;
                 }
             }
         }
@@ -45,5 +47,10 @@ public class Selecter : MonoBehaviour
             ultimoObjeto = null;
         }
         textDetect.SetActive(false);
+    }
+
+    public void androidEPresionado()
+    {
+        androidE = true;
     }
 }

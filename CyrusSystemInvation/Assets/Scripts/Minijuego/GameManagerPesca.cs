@@ -27,6 +27,7 @@ public class GameManagerPesca : MonoBehaviour
     private List<GameObject> pecesActivos = new List<GameObject>();
 
     [Header("Caña del jugador")]
+    public Joystick pescaJoystick;
     public GameObject caña;
     public float velocidadCaña = 5f;
 
@@ -74,8 +75,22 @@ public class GameManagerPesca : MonoBehaviour
         if (!juegoActivo) return;
 
         // Movimiento de la caña
-        float moverY = Input.GetAxis("Vertical") * velocidadCaña * Time.deltaTime;
-        float moverX = Input.GetAxis("Horizontal") * velocidadCaña * Time.deltaTime;
+        float verticalInput;
+        float horizontalInput;
+
+        if (pescaJoystick != null && (pescaJoystick.Horizontal != 0 || pescaJoystick.Vertical != 0))
+        {
+            verticalInput = pescaJoystick.Vertical;
+            horizontalInput = pescaJoystick.Horizontal;
+        }
+        else
+        {
+            verticalInput = Input.GetAxis("Vertical");
+            horizontalInput = Input.GetAxis("Horizontal");
+        }
+
+        float moverY = verticalInput * velocidadCaña * Time.deltaTime;
+        float moverX = horizontalInput * velocidadCaña * Time.deltaTime;
         caña.transform.Translate(moverX, moverY, 0);
 
         // Temporizador general del juego
@@ -115,7 +130,7 @@ public class GameManagerPesca : MonoBehaviour
 
         nuevoPez.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
         float y = Random.Range(-2.5f, 2.5f);
-        nuevoPez.transform.localPosition = new Vector3(-12f, y, 0f);
+        nuevoPez.transform.localPosition = new Vector3(-12f, y, 6f);
 
         Pez pezScript = nuevoPez.AddComponent<Pez>();
         pezScript.esFotoJugador = esFotoJugador;
@@ -183,7 +198,7 @@ public class GameManagerPesca : MonoBehaviour
             nuevoPez.GetComponent<SpriteRenderer>().sprite = spriteFoto;
             nuevoPez.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
             float yPos = Random.Range(-2.5f, 2.5f);
-            nuevoPez.transform.localPosition = new Vector3(-12f, yPos, 0f);
+            nuevoPez.transform.localPosition = new Vector3(-12f, yPos, 6f);
 
             Pez scriptPez = nuevoPez.GetComponent<Pez>();
             if (scriptPez == null) scriptPez = nuevoPez.AddComponent<Pez>();
