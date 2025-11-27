@@ -2781,6 +2781,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 423864, guid: 98f508b556c380a4e89204f95af2d3da, type: 3}
   m_PrefabInstance: {fileID: 473813122}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &853003781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3001392920135069426, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+  m_PrefabInstance: {fileID: 1765767720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdd92248da693849a116144dccce988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlesAndroid
 --- !u!4 &867340296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 467230, guid: 7b45b788a1417934faed26ad07e2f502, type: 3}
@@ -2837,6 +2848,14 @@ PrefabInstance:
     - target: {fileID: 5784199639435115254, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
       propertyPath: m_Name
       value: PausaPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 853003781}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: mostrar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4286,7 +4305,7 @@ PrefabInstance:
       objectReference: {fileID: 1140418455}
     - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: useMobileInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name
@@ -6568,11 +6587,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749104858766728091, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028934410553144224, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6354758883531754345, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 2.381836
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354758883531754345, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.71875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505677071065036372, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505677071065036375, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8128101207314466841, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6631,7 +6666,8 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6028934410553144224, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
@@ -8495,7 +8531,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1083159275}
-  - {fileID: 1765767720}
   - {fileID: 1255132219}
   - {fileID: 224238587}
   - {fileID: 1163389906}
@@ -8517,3 +8552,4 @@ SceneRoots:
   - {fileID: 1545305990}
   - {fileID: 1180899248}
   - {fileID: 199086054}
+  - {fileID: 1765767720}
