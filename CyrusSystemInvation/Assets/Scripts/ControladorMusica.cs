@@ -58,10 +58,11 @@ public class ControladorMusica : MonoBehaviour
             return;
         }
         AudioClip clipElegido;
-       
+
         if (indexEscena == 5)
             clipElegido = audioplataformer; // escena número 6
-        else if (indexEscena == 6) {
+        else if (indexEscena == 6)
+        {
             clipElegido = audiowin; // escena número 7
         }
         else
@@ -72,7 +73,8 @@ public class ControladorMusica : MonoBehaviour
             return;
 
         audioSource.clip = clipElegido;
-        audioSource.Play();
-        
+        // Reproducir con 3 segundos de retraso
+        audioSource.PlayDelayed(3f);
+
     }
 }

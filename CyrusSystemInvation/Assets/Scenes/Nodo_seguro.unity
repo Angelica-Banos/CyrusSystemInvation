@@ -8943,6 +8943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotonesAndroid
       objectReference: {fileID: 0}
+    - target: {fileID: 4749104858766728091, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6354758883531754345, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 2.381836
