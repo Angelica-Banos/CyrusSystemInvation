@@ -5890,7 +5890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tiempo: -1000'
+  m_text: 'Tiempo: 10000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}
   m_sharedMaterial: {fileID: -1103274952791116173, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}
@@ -24394,6 +24394,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   tiempo: {fileID: 159002292}
   numNodos: {fileID: 344117418}
+  mostrarMejoresTiempos: {fileID: 1800215703}
 --- !u!114 &1800215705
 MonoBehaviour:
   m_ObjectHideFlags: 0

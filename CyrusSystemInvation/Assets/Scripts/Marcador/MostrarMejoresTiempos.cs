@@ -27,7 +27,6 @@ public class MostrarMejoresTiempos : MonoBehaviour
     public void CargarYMostrarMejoresTiempos()
     {
         marcadorTextMeshPro.text = "Cargando mejores tiempos...";
-
         GetTopPlayersAsTextArray((textArray) =>
         {
             if (textArray == null || textArray.Length == 0)

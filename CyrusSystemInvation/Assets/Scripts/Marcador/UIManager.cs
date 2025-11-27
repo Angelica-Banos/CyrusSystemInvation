@@ -13,15 +13,25 @@ public class UIManager : MonoBehaviour
     [Header("Para el display")]
     public TMP_Text tiempo;
     public TMP_Text numNodos;
+    public MostrarMejoresTiempos mostrarMejoresTiempos;
     void Start()
     {
         // Asignar función al botón
-        gameManager = GameManager.Instance;
+        try
+        {
+            gameManager = GameManager.Instance;
+           
+        }
+        catch
+        {
+            Debug.LogWarning("No se pudo inicializar el UIManager correctamente.");
+        }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         submitButton.onClick.AddListener(OnSubmitButtonClicked);
         tiempo.SetText($"Tiempo: {FormatoTiempo(gameManager.segundosTranscurridos)}");
         numNodos.SetText($"Nodos visitados: {gameManager.cantidadNodosVisitados.ToString()}");
+
     }
 
     void OnSubmitButtonClicked()
@@ -30,6 +40,7 @@ public class UIManager : MonoBehaviour
         Debug.Log("Datos enviados a la API");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        mostrarMejoresTiempos.CargarYMostrarMejoresTiempos();
     }
     private string FormatoTiempo(float tiempo)
     {

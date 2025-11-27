@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: lookJoystick
       value: 
       objectReference: {fileID: 2013609630}
+    - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: useMobileInput
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name
       value: FirstPersonController Variant
@@ -3732,6 +3736,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausaPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1510108662}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: mostrar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3939,7 +3951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749104858766728091, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6354758883531754345, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5611,6 +5623,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 464102, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
   m_PrefabInstance: {fileID: 227729894}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1510108662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3001392920135069426, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+  m_PrefabInstance: {fileID: 1196286481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdd92248da693849a116144dccce988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlesAndroid
 --- !u!4 &1511538744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 428906, guid: a5cd29a93d7ae2d488fa0376d0d08462, type: 3}
@@ -5775,8 +5798,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ya dentro del computador del usuario lograte conseguir informacion de el,
-    hasta conseguiste entrar en su sitema y hakear su camara, felicidades
+  m_text: "El sistema no valido al usuario y te permitio acceder a informacion sensible
+    mediante el salto de directorio,\n\tBien hecho [CYrus]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}
   m_sharedMaterial: {fileID: -1103274952791116173, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}

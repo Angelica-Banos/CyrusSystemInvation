@@ -1820,7 +1820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749104858766728091, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6354758883531754345, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6990,6 +6990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausaPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2098879737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7561,6 +7565,10 @@ PrefabInstance:
       propertyPath: lookJoystick
       value: 
       objectReference: {fileID: 457211058}
+    - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: useMobileInput
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name
       value: FirstPersonController Variant
@@ -7706,8 +7714,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "lograste entrar al computador del usiario.\n\nEso es debido a que el usuario
-    ingreso a tu correo extra\xF1o sin revisarlo bien antes."
+  m_text: 'Bien hecho [CYrus], lograste entrar al computador del usuario.
+
+
+    Esto
+    es gracias a que el usuario no reviso bien el correo sospechoso.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}
   m_sharedMaterial: {fileID: -1103274952791116173, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}
@@ -7848,6 +7859,17 @@ RectTransform:
   m_AnchoredPosition: {x: 6.03, y: -15.73}
   m_SizeDelta: {x: 7.697, y: 2.479}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2098879737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3001392920135069426, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+  m_PrefabInstance: {fileID: 457211056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdd92248da693849a116144dccce988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlesAndroid
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

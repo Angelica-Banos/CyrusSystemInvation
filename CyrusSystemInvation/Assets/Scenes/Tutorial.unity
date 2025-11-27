@@ -5731,7 +5731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1034073099
 Transform:
   m_ObjectHideFlags: 0
@@ -7077,6 +7077,14 @@ PrefabInstance:
     - target: {fileID: 5784199639435115254, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
       propertyPath: m_Name
       value: PausaPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1034073100}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: mostrar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

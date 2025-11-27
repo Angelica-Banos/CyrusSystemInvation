@@ -620,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749104858766728091, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6354758883531754345, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1111,6 +1111,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467251685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3001392920135069426, guid: f478abd4dd0e4674d848e80807e3b1ab, type: 3}
+  m_PrefabInstance: {fileID: 100123206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdd92248da693849a116144dccce988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlesAndroid
 --- !u!1 &487414814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,8 +2586,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Robaste la contrase\xF1a del usuario, tambien el...\n\n\xBFPorque usaba
-    0000 de contrase\xF1a?"
+  m_text: "Robaste la clave del usuario, tambien el...\n\n\xBFPor que usaba 0000
+    de clave?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}
   m_sharedMaterial: {fileID: -1103274952791116173, guid: 0c5956602c1ce0a4bb82d9252af402b1, type: 2}
@@ -3232,15 +3243,31 @@ PrefabInstance:
       objectReference: {fileID: 1227749437}
     - target: {fileID: 5519088773879472838, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: useMobileInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5519088773879472844, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: m_Name
       value: FirstPersonController Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5519088774667012184, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012184, guid: 1b68bc221519ab044994cef464284696, type: 3}
       propertyPath: field of view
       value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012184, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012184, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.8352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519088774667012184, guid: 1b68bc221519ab044994cef464284696, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.41960785
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3959005170262442983, guid: 1b68bc221519ab044994cef464284696, type: 3}
@@ -5011,6 +5038,14 @@ PrefabInstance:
     - target: {fileID: 5784199639435115254, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
       propertyPath: m_Name
       value: PausaPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 467251685}
+    - target: {fileID: 8080968161090153001, guid: 8d3f153b66959994ebc5369919287faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: mostrar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
